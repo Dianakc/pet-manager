@@ -115,6 +115,14 @@ function test_if_meta( $arr, $key, $before = '', $after = '' ) {
              return $before . $text . $after;
     }
 
+//Add post pet to author page
+function custom_post_author_archive($query) {
+    if ($query->is_author)
+        $query->set( 'post_type', array('pet', 'post') );
+    remove_action( 'pre_get_posts', 'custom_post_author_archive' );
+}
+add_action('pre_get_posts', 'custom_post_author_archive');
+
 //Place content
 add_filter( 'the_content', 'place_special_pet_content', 20 );
 function place_special_pet_content( $content ) {
