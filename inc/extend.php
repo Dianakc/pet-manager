@@ -253,7 +253,7 @@ function place_special_pet_content_in_pets( $content ) {
         foreach ($terms as $term) {
           $data .= "<input type='checkbox' name='pet-gender' value='$term->slug'[]" . ">$term->name";
         }
-      $data .= '</select>';
+
 
       $data.=  '<br /><label>'.__('Size','wp_pet').'</label><select name="pet-size" id="pet-size">';
       $terms = get_terms('pet-size', array('hide_empty' => 1 ));
