@@ -44,7 +44,7 @@ validClass: "success",
     <form id="new_post" name="new_post" method="post" action="new_pet" class="wpcf7-form" enctype="multipart/form-data"> <!-- Form starts -->
 
 
-        <fieldset name="pet-info">
+
         <h2><?php _e('Quick Add', 'wp_pet'); ?></h2>
         <p><?php _e('Fill the pet information here, you can add and change all info anytime.', 'wp_pet'); ?></p>
 
@@ -91,54 +91,14 @@ validClass: "success",
               ?>
           </select></span><br />
 
-          <span class="field"> <label for="petgender"><?php _e('Gender', 'wp_pet'); ?></label>
-            <input type="radio" tabindex="17"  name="petgender"  value="<?php _e('Male', 'wp_pet'); ?>" checked="checked"/><span class="petgender"><?php _e('Male', 'wp_pet'); ?></span>
-            <input type="radio" tabindex="18"  name="petgender"  value="<?php _e('Female', 'wp_pet'); ?>" /><span class="petgender"><?php _e('Female', 'wp_pet'); ?></span>
-          </span>
 
-          <span class="field"><label for="petage"><?php _e('Age', 'wp_pet'); ?></label>
-            <select tabindex="20" name="petage" id="petage">
-             <option value="<?php _e('Baby (Under 1 year)', 'wp_pet'); ?>"><?php _e('Baby (Under 1 year)', 'wp_pet'); ?></option>
-             <option value="<?php _e('Adult (2 to 9 years)', 'wp_pet'); ?>"><?php _e('Adult (2 to 9 years)', 'wp_pet'); ?></option>
-             <option value="<?php _e('Senior (More than 10 years)', 'wp_pet'); ?>"><?php _e('Senior (More than 10 years)', 'wp_pet'); ?></option>
-            </select></span><br />
-
-          <span class="fieldt"><label for="petbreed"><?php _e('Breed(s)', 'wp_pet'); ?></label>
-            <input type="text" value="" id="petbreed" tabindex="21" name="petbreed" style="text-transform:capitalize"/>
-            <br /><?php _e('One or more breeds separated by commas. Example: Poodle, Unknown', 'wp_pet'); ?>
-          </span>
 
           <span class="fieldt"><label for="petvac"><?php _e('Vaccines', 'wp_pet'); ?></label>
-            <input type="radio" tabindex="24" name="petvac"  value="<?php _e('Vaccinated', 'wp_pet'); ?>" /><span class="petvac"><?php _e('Vaccinated', 'wp_pet'); ?></span>
-            <input type="radio" tabindex="25" name="petvac"  value="<?php _e('Dose Interval', 'wp_pet'); ?>" /><span class="petvac"><?php _e('Dose Interval', 'wp_pet'); ?></span>
+            <input type="radio" tabindex="24" name="petvac"  value="<?php _e('Vaccinated', 'wp_pet'); ?>" /><span class="petvac"><?php _e('Vaccinated', 'wp_pet'); ?>&nbsp;&nbsp;</span>
+            <input type="radio" tabindex="25" name="petvac"  value="<?php _e('Dose Interval', 'wp_pet'); ?>" /><span class="petvac"><?php _e('Dose Interval', 'wp_pet'); ?>&nbsp;&nbsp;</span>
             <input type="radio" tabindex="23"  name="petvac"  value="<?php _e('Unknown', 'wp_pet'); ?>" /><span class="petvac"><?php _e('Unknown', 'wp_pet'); ?></span>
           </span>
 
-          <span class="field"><label for="petsize"><?php _e('Size', 'wp_pet'); ?></label>
-            <select tabindex="26" name="petsize" id="petsize">
-             <option value="<?php _e('Newborn (Imprecise)', 'wp_pet'); ?>"><?php _e('Newborn (Imprecise)', 'wp_pet'); ?></option>
-             <option value="<?php _e('Mini', 'wp_pet'); ?>"><?php _e('Mini', 'wp_pet'); ?></option>
-             <option value="<?php _e('Small', 'wp_pet'); ?>"><?php _e('Small', 'wp_pet'); ?></option>
-             <option value="<?php _e('Medium', 'wp_pet'); ?>"><?php _e('Medium', 'wp_pet'); ?></option>
-             <option value="<?php _e('Large', 'wp_pet'); ?>"><?php _e('Large', 'wp_pet'); ?></option>
-             <option value="<?php _e('Huge', 'wp_pet'); ?>"><?php _e('Huge', 'wp_pet'); ?></option>
-            </select></span>
-
-          <span class="field"><label for="pethair"><?php _e('Coat', 'wp_pet'); ?></label>
-            <select tabindex="27" name="pethair" id="pethair">
-             <option value="<?php _e('None', 'wp_pet'); ?>"><?php _e('None', 'wp_pet'); ?></option>
-             <option value="<?php _e('Short', 'wp_pet'); ?>"><?php _e('Short', 'wp_pet'); ?></option>
-             <option value="<?php _e('Long', 'wp_pet'); ?>"><?php _e('Long', 'wp_pet'); ?></option>
-             <option value="<?php _e('Mixed', 'wp_pet'); ?>"><?php _e('Mixed', 'wp_pet'); ?></option>
-             <option value="<?php _e('Wired', 'wp_pet'); ?>"><?php _e('Wired', 'wp_pet'); ?></option>
-             <option value="<?php _e('Curly', 'wp_pet'); ?>"><?php _e('Curly', 'wp_pet'); ?></option>
-            </select></span>
-
-          <span class="fieldt checkboxes"><label class="petcolor" for="petcolor"><?php _e('Colors', 'wp_pet'); ?></label>
-            <?php
-              $terms = get_terms('pet-color', array('hide_empty' => 0));
-              foreach ($terms as $term) {echo "<label for='$term->slug'><input type='checkbox'  id='post_tags' name='post_tags[]' value='$term->slug'><span>$term->name</span></label>"; }
-            ?></span>
         </fieldset>
 
       <fieldset name="site-image" class="site-image">
