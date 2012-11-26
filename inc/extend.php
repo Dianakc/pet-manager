@@ -254,7 +254,6 @@ function place_special_pet_content_in_pets( $content ) {
           $data .= "<input type='checkbox' name='pet-gender' value='$term->slug'[]" . ">$term->name";
         }
 
-
       $data.=  '<br /><label>'.__('Size','wp_pet').'</label><select name="pet-size" id="pet-size">';
       $terms = get_terms('pet-size', array('hide_empty' => 1 ));
 
@@ -323,7 +322,7 @@ add_filter( 'the_content', 'place_special_content_387fbvbb', 20 );
 function place_special_content_387fbvbb( $content ) {
 
     if (is_preview() && 'pet' == get_post_type())
-    $note = '<div class="note">'.__('This post is still waiting for moderation.','wp_pet').'</div>';
+    $note = '<div class="note">'.__('This post is still waiting for moderator approval. <a href="','wp_pet').get_permalink(get_the_ID()).'">Edit this post and add more info</a></div>';
 
     return $content.$note;
 }
