@@ -2,7 +2,7 @@
 <p><em>A WordPress plugin for animal shelters</em></p>
 
 <p>Pet Manager is a free WordPress plugin that help you to run an animal shelter website. The goal is keep the management as easy as possible. 
-<strong>Please note, this plugin is still in development!</strong></p>
+<strong>Please note, this plugin is still under development!</strong></p>
 
 <h3>Features</h3>
 <ul>
