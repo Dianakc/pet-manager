@@ -1,8 +1,24 @@
-.pet_info {display:table;clear:both;padding:0;;width:100%}
+.pet_info {display:table;clear:both;padding:0;;width:100%;margin-bottom:2em}
+
+.pet_info ul  {float:left;}
+.pet_info ul li {list-style:none;overflow:hidden;margin:0px;width:230px;font-size:0.8em}
+.pet_info ul li span {font-size:1.2em;text-transform:uppercase}
+
+single-pet #respond, .single-pet .attachment-post-thumbnail,
+.tax-pet-category .attachment-post-thumbnail,
+.tax-pet-status .attachment-post-thumbnail,
+.tax-pet-age .attachment-post-thumbnail,
+.tax-pet-color .attachment-post-thumbnail,
+.tax-pet-breeds .attachment-post-thumbnail,
+.tax-pet-coat .attachment-post-thumbnail,
+.tax-pet-pattern .attachment-post-thumbnail,
+.tax-pet-size .attachment-post-thumbnail,
+.tax-pet-gender .attachment-post-thumbnail
+{display:none}
 
 .pet_info figure {
 float:left;position:relative;
-width:150px;height:150px;margin:0;
+width:150px;height:150px;margin:0 10px 0 0;
 padding:0;
 
 }
@@ -35,10 +51,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 border-top:1px solid #fff;
 }
 
-.pet_info ul {float:left; list-style:none;}
-
-.pet_info ul li span{font-weight:bold}
-
 .pet_info figcaption .icon {
  width:16px;height:16px;
 float:left;
@@ -62,7 +74,7 @@ border-radius: 5px;
 /* Hide featured and thumbs on some themes */
 .taxonomy-pet-category .thumbnail, .taxonomy-pet-category .featured {display:none;}
 
-.clear{clear:both;display:block}
+.clear{clear:both;width:100%}
 
 #new_post fieldset {border:1px solid #eee; padding:10px;margin:10px 0}
 #new_post label {font-weight:bold;margin-right:1.5em}
