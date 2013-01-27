@@ -2,7 +2,7 @@
 /**
  * Include and setup custom metaboxes and fields.
  *
- * @category YourThemeOrPlugin
+ * @category Pet Manager
  * @package  Metaboxes
  * @license  http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link     https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
@@ -41,7 +41,7 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
      array(
      	'name' => __('Category','wp_pet'),
      	'id' => $prefix . 'pet_category',
-     	'taxonomy' => 'pet-category', 
+     	'taxonomy' => 'pet-category',
      	'type' => 'taxonomy_select',
      ),
 			array(
@@ -53,13 +53,13 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 			),
 			array(
        	'name' => __('Gender','wp_pet'),
-       	'id' => $prefix . 'pet_category',
+       	'id' => $prefix . 'pet_gender',
        	'taxonomy' => 'pet-gender',
        	'type' => 'taxonomy_select',
 			),
 			array(
        	'name' => __('Age','wp_pet'),
-       	'id' => $prefix . 'pet_category',
+       	'id' => $prefix . 'pet_age',
        	'taxonomy' => 'pet-ages', 
        	'type' => 'taxonomy_select',
 			),
@@ -71,19 +71,19 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 			),
 			array(
        	'name' => __('Size','wp_pet'),
-       	'id' => $prefix . 'pet_category',
-       	'taxonomy' => 'pet-size', 
+       	'id' => $prefix . 'pet_size',
+       	'taxonomy' => 'pet-size',
        	'type' => 'taxonomy_select',
 			),
       array(
       	'name' => __('Coat','wp_pet'),
-      	'id' => $prefix . 'pet_color',
+      	'id' => $prefix . 'pet_coat',
       	'taxonomy' => 'pet-coat',
       	'type' => 'taxonomy_multicheck',
       ),
       array(
       	'name' => __('Pattern','wp_pet'),
-      	'id' => $prefix . 'pet_color',
+      	'id' => $prefix . 'pet_pattern',
       	'taxonomy' => 'pet-pattern',
       	'type' => 'taxonomy_select',
       ),
