@@ -24,43 +24,29 @@ function wph_right_now_content_table_pet() {
 add_action( 'right_now_content_table_end' , 'wph_right_now_content_table_pet' );
 
 
-
-
 /* Add pet status column*/
-    function add_columns_on_persons_transcult($defaults) {
+    function add_columns_info_on_pets($defaults) {
         $defaults['pet_column'] = __('Pet Info','wp_pet');
         return $defaults;
     }
 
-    function pet_column_trancult($column_name, $post_ID) {
+    function pet_column_info($column_name, $post_ID) {
 
           if ($column_name == 'pet_column') {
-            $term_list = wp_get_post_terms($post_ID, 'pet-status');
-            foreach ($term_list as $term)
-            print '<p><strong>'.__('Status','wp_pet').':</strong> <a title="See all pets in '.$term->name.'" href="edit.php?occupation='.$term->slug.'&post_type=person" >'.$term->name.'</a></p>';
+            $pet_status = wp_get_post_terms($post_ID, 'pet-status');
+            foreach ($pet_status as $status)
+            print '<p><strong>'.__('Status','wp_pet').':</strong> <a title="See all pets in '.$status->name.'" href="edit.php?pet-status='.$status->slug.'&post_type=pet" >'.$status->name.'</a></p>';
+
+            $pet_category = wp_get_post_terms($post_ID, 'pet-category');
+            foreach ($pet_category as $category)
+            print '<p><strong>'.__('Category','wp_pet').':</strong> <a title="See all pets in '.$category->name.'" href="edit.php?pet-category='.$category->slug.'&post_type=pet" >'.$category->name.'</a></p>';
+
+
             }
     }
-    add_filter('manage_pet_posts_columns', 'add_columns_on_persons_transcult', 10);
-    add_action('manage_pet_posts_custom_column', 'pet_column_trancult', 10, 2);
+    add_filter('manage_pet_posts_columns', 'add_columns_info_on_pets', 10);
+    add_action('manage_pet_posts_custom_column', 'pet_column_info', 10, 2);
 
-
-/* Add pet category column*/
-    function add_columns_category_for_pets($defaults) {
-        $defaults['pet_column'] = __('Pet Info','wp_pet');
-        return $defaults;
-    }
-
-    function pet_category_column($column_name, $post_ID) {
-
-          if ($column_name == 'pet_column') {
-            $term_list = wp_get_post_terms($post_ID, 'pet-category');
-
-            foreach ($term_list as $term)
-            print '<p><strong>'.__('Category','wp_pet').':</strong> <a title="'.__('See all pets in','wp_pet').' '.$term->name.'" href="edit.php?occupation='.$term->slug.'&post_type=person" >'.$term->name.'</a></p>';
-            }
-    }
-    add_filter('manage_pet_posts_columns', 'add_columns_category_for_pets', 10);
-    add_action('manage_pet_posts_custom_column', 'pet_category_column', 10, 2);
 
 
 /* Display Pet picture*/
@@ -82,7 +68,7 @@ add_action( 'right_now_content_table_end' , 'wph_right_now_content_table_pet' );
                 $post_featured_image = ST4_get_featured_image($post_ID);
                 if ((!empty($post_featured_image))) {
                     echo '<div style="padding:3px;overflow:hidden;border:1px solid #ccc;width:40px;height:40px;display:block"><img style="width:100%;height:auto;" src="' . $post_featured_image . '" alt="" title="'.get_the_title().'" /></div>';
-                } else { echo '<a class="thickbox" id="set-post-thumbnail" href="http://localhost/wp3/wp-admin/media-upload.php?post_id='.get_the_ID().'&type=image&TB_iframe=1">'.__('Set picture','wp_pet').'</a>';}
+                } else { echo '';}
             }
         }
     }
@@ -155,13 +141,10 @@ function place_special_pet_content( $content ) {
                 '<li><span>'.__('Coat','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-coat', '', ', ', '' ).'</li>'.
                 '<li><span>'.__('Pattern','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-pattern', '', ', ', '' ).'</li>'.
                 test_if_meta( $petinfo, '_data_pet_fee', '<li><span>'.__('Fee','wp_pet').':</span> ', '</li>').
+                '<li><span>'.__('Added','wp_pet').'</span> '.get_the_date().'</li>'.
+                '<li><span>'.__('Modified','wp_pet').'</span> '.get_the_modified_date().'</li>'.
                 '</ul>'.
                 '</div>';
-
-
-     $special .= '<div class="clear"></div><p><strong>'.__('Published','wp_pet').'</strong> '.get_the_date().' '.
-                  '<strong>'.__('Modified','wp_pet').'</strong> '.get_the_modified_date(). '</p>';
-
 
      if(!empty($petinfo['_data_pet_address'][0])) {
      $extrapet .= '<h3>'.__('Address','wp_pet').'</h3><p>'.$petinfo['_data_pet_address'][0].'</p>';
@@ -212,8 +195,9 @@ function place_special_pet_content( $content ) {
                 '<li><span>'.__('Coat','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-coat', '', ', ', '' ).'</li>'.
                 '<li><span>'.__('Pattern','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-pattern', '', ', ', '' ).'</li>'.
                 test_if_meta( $petinfo, '_data_pet_fee', '<li><span>'.__('Fee','wp_pet').':</span> ', '</li>').
+                '<li><span>'.__('Added','wp_pet').'</span> '.get_the_date().'</li>'.
+                '<li><span>'.__('Modified','wp_pet').'</span> '.get_the_modified_date().'</li>'.
                 '</ul>'.
-
                 '</div>';
     }
 
@@ -330,7 +314,7 @@ add_filter( 'the_content', 'place_special_content_387fbvbb', 20 );
 function place_special_content_387fbvbb( $content ) {
 
     if (is_preview() && 'pet' == get_post_type())
-    $note = '<div class="note">'.__('This post is still waiting for moderator approval. <a href="','wp_pet').get_permalink(get_the_ID()).'">Edit this post and add more info</a></div>';
+    $note = '<div class="note">'.__('This post is still waiting for moderator approval. <a href="','wp_pet').get_edit_post_link( get_the_ID()).'">Edit this post and add more info</a></div>';
 
     return $content.$note;
 }
@@ -373,5 +357,7 @@ foreach ($statuses as $status) {
 
   return $searchform;
 }
+
+
 
 ?>
