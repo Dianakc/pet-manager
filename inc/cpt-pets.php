@@ -66,11 +66,6 @@ function create_pet_status_taxonomy()
     $labels = array('name' => _x( 'Status','wp-pet'),'menu_name' => __( 'Statuses','wp-pet'), );
 		register_taxonomy( 'pet-status', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-status', 'rewrite' => array( 'slug' => __('status','wp-pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
 
-		wp_insert_term(__('Adopt','wp-pet'), 'pet-status');
-		wp_insert_term(__('Adopted','wp-pet'), 'pet-status');
-		wp_insert_term(__('Lost','wp-pet'), 'pet-status');
-		wp_insert_term(__('Found','wp-pet'), 'pet-status');
-		wp_insert_term(__('Deceased','wp-pet'), 'pet-status');
 	}
 }
 
@@ -83,8 +78,6 @@ function create_pet_genre_taxonomy()
     $labels = array('name' => _x( 'Gender','wp-pet'),'menu_name' => __( 'Genders','wp-pet'), );
 		register_taxonomy( 'pet-gender', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-gender', 'rewrite' => array( 'slug' => __('genre','wp-pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
 
-		wp_insert_term(__('Male','wp-pet'), 'pet-gender');
-		wp_insert_term(__('Female','wp-pet'), 'pet-gender');
 	}
 }
 
@@ -96,9 +89,6 @@ function create_pet_age_taxonomy()
     $labels = array('name' => _x( 'Age','wp-pet'),'menu_name' => __( 'Ages','wp-pet'), );
 		register_taxonomy( 'pet-ages', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-ages', 'rewrite' => array( 'slug' => __('age','wp-pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
 
-		wp_insert_term(__('Baby (Under 1 year)','wp-pet'), 'pet-ages');
-		wp_insert_term(__('Adult (2 to 9 years)','wp-pet'), 'pet-ages');
-		wp_insert_term(__('Senior (More than 10 years)','wp-pet'), 'pet-ages');
 	}
 }
 
@@ -110,15 +100,6 @@ function create_pet_breed_taxonomy()
     $labels = array('name' => _x( 'Breeds','wp-pet'),'menu_name' => __( 'Breeds','wp-pet'), );
 		register_taxonomy( 'pet-breeds', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-breeds','rewrite' => array( 'slug' => __('breed','wp-pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
 
-		wp_insert_term(__('Mixed','wp-pet'), 'pet-breeds');
-		wp_insert_term(__('Labrador Retriever','wp-pet'), 'pet-breeds');
-		wp_insert_term(__('Cocker Spaniel','wp-pet'), 'pet-breeds');
-		wp_insert_term(__('German Shepherd','wp-pet'), 'pet-breeds');
-		wp_insert_term(__('Boxer','wp-pet'), 'pet-breeds');
-		wp_insert_term(__('Beagle','wp-pet'), 'pet-breeds');
-		wp_insert_term(__('Dachshund','wp-pet'), 'pet-breeds');
-		wp_insert_term(__('Poodle','wp-pet'), 'pet-breeds');
-		wp_insert_term(__('Rottweiler','wp-pet'), 'pet-breeds');
 	}
 }
 
@@ -130,12 +111,6 @@ function create_pet_size_taxonomy()
     $labels = array('name' => _x( 'Size','wp-pet'),'menu_name' => __( 'Sizes','wp-pet'), );
 		register_taxonomy( 'pet-size', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-size', 'rewrite' => array( 'slug' => __('size','wp-pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
 
-		wp_insert_term(__('Newborn (Imprecise)','wp-pet'), 'pet-size');
-		wp_insert_term(__('Mini','wp-pet'), 'pet-size');
-		wp_insert_term(__('Small','wp-pet'), 'pet-size');
-		wp_insert_term(__('Medium','wp-pet'), 'pet-size');
-		wp_insert_term(__('Large','wp-pet'), 'pet-size');
-		wp_insert_term(__('Huge','wp-pet'), 'pet-size');
 	}
 }
 
@@ -147,12 +122,6 @@ function create_pet_coat_taxonomy()
     $labels = array('name' => _x( 'Coat','wp-pet'),'menu_name' => __( 'Coats','wp-pet'), );
 		register_taxonomy( 'pet-coat', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-coat','rewrite' => array( 'slug' => __('coat','wp-pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
 
-		wp_insert_term(__('None','wp-pet'), 'pet-coat');
-		wp_insert_term(__('Short','wp-pet'), 'pet-coat');
-		wp_insert_term(__('Long','wp-pet'), 'pet-coat');
-		wp_insert_term(__('Mixed','wp-pet'), 'pet-coat');
-		wp_insert_term(__('Wired','wp-pet'), 'pet-coat');
-		wp_insert_term(__('Curly','wp-pet'), 'pet-coat');
 	}
 }
 
@@ -164,17 +133,6 @@ function create_pet_pattern_taxonomy()
     $labels = array('name' => _x( 'Pattern','wp-pet'),'menu_name' => __( 'Patterns','wp-pet'), );
 		register_taxonomy( 'pet-pattern', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-pattern', 'rewrite' => array( 'slug' => __('pattern','wp-pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
 
-		wp_insert_term(__('Solid','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Bicolor','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Tricolor','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Merle','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Tuxedo','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Harlequin','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Spotted','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Flecked','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Brindle','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Saddle','wp-pet'), 'pet-pattern');
-		wp_insert_term(__('Sable','wp-pet'), 'pet-pattern');
 	}
 }
 
@@ -186,16 +144,7 @@ function create_pet_color_taxonomy()
     $labels = array('name' => _x( 'Color','wp-pet'),'menu_name' => __( 'Colors','wp-pet'), );
 		register_taxonomy( 'pet-color', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-color', 'rewrite' => array( 'slug' => __('color','wp-pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
 
-		wp_insert_term(__('Black','wp-pet'), 'pet-color');
-		wp_insert_term(__('Brown','wp-pet'), 'pet-color');
-		wp_insert_term(__('Grey','wp-pet'), 'pet-color');
-		wp_insert_term(__('White','wp-pet'), 'pet-color');
-		wp_insert_term(__('Chocolate','wp-pet'), 'pet-color');
-		wp_insert_term(__('Gold','wp-pet'), 'pet-color');
-		wp_insert_term(__('Red','wp-pet'), 'pet-color');
-		wp_insert_term(__('Cream','wp-pet'), 'pet-color');
-		wp_insert_term(__('Bronze','wp-pet'), 'pet-color');
-	}
+  }
 }
 
 
