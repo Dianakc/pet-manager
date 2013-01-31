@@ -2,7 +2,7 @@
 /**
  * Include and setup custom metaboxes and fields.
  *
- * @category Pet Manager
+ * @category YourThemeOrPlugin
  * @package  Metaboxes
  * @license  http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
  * @link     https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
@@ -19,6 +19,7 @@ add_filter( 'cmb_meta_boxes', 'cmb_sample_metaboxes' );
  * @return array
  */
 function cmb_sample_metaboxes( array $meta_boxes ) {
+
 
 	// Start with an underscore to hide fields from custom fields list
 	$prefix = '_data_';
@@ -105,8 +106,8 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 				),
 			),
 			array(
-				'name' => __('Special Information','wp_pet'),
-				'desc' => __('Add extra information here, if applicable, e.g. lost date and area, pet adoption fair etc.','wp_pet'),
+				'name' => __('Lost & Found Information','wp_pet'),
+				'desc' => __('Add an address here to display a map if your lost or found a wondering pet.','wp_pet'),
 				'id'   => $prefix . 'pet_title_3',
 				'type' => 'title',
 			),
@@ -116,13 +117,7 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'pet_address',
 				'type' => 'text_medium',
 			),
-			array(
-				'name' => __('Geocode','wp_pet'),
-				'desc' => __('Get geocodes from addresses with <a title="Google Maps Geocode" href="http://gmaps-samples.googlecode.com/svn/trunk/geocoder/singlegeocode.html" target="_blank">Google Geocodes</a>','wp_pet'),
-				'id'   => $prefix . 'pet_geocode',
-				'type' => 'text_medium',
-			),
-			array(
+			/*array(
 				'name' => __('Date','wp_pet'),
 				'desc' => '',
 				'id'   => $prefix . 'pet_date',
@@ -135,8 +130,8 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 	            'type' => 'text_time',
 	        ),
 			array(
-				'name' => __('Contact Form','wp_pet'),
-				'desc' => __('Display a form so people can send e-mails directly from this site.','wp_pet'),
+				'name' => __('Contact','wp_pet'),
+				'desc' => __('Inform a e-mail address so people can contact you.','wp_pet'),
 				'id'   => $prefix . 'pet_title_3',
 				'type' => 'title',
 			),
@@ -147,10 +142,11 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 				'type'    => 'radio',
 				'options' => array(
 					array( 'name' => __('Do not display email form','wp_pet'), 'value' => 'not_email', ),
-					array( 'name' => __('Send to site admin e-mail','wp_pet'), 'value' => 'a_email', ),
+					array( 'name' => __('Send email to site admin','wp_pet'), 'value' => 'a_email', ),
 					array( 'name' => __('Send to following e-mail','wp_pet'), 'value' => 't_email', ),
 				),
 			),
+*/
 			array(
 				'name' => __('Contact e-mail','wp_pet'),
 				'desc' => '',

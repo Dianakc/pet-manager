@@ -28,6 +28,7 @@ Author URI: http://dianakcury.com/
     //include the main class file
     require_once PLUGIN_PATH .'/'.TC_DIR_NAME . '/inc/cpt-pets.php';
     require_once PLUGIN_PATH .'/'.TC_DIR_NAME . '/inc/extend.php';
+    require_once PLUGIN_PATH .'/'.TC_DIR_NAME . '/inc/widgets.php';
     require_once PLUGIN_PATH .'/'.TC_DIR_NAME . '/inc/metabox/boxes.php';
 
     define( 'CMB_META_BOX_URL', PLUGIN_URL.'/'.TC_DIR_NAME . '/inc/metabox/' );
@@ -80,22 +81,28 @@ class PET_MANAGER {
     add_action( 'init', 'create_pet_coat_taxonomy');
     add_action( 'init', 'create_pet_pattern_taxonomy');
 
-    add_action( 'init', 'remove_pets_support');
+    add_action( 'init', 'pet_remove_pets_support');
     add_action( 'admin_menu' , 'remove_taxonomies_boxes' );
     add_shortcode( 'pet_shortcode', 'pet_shortcode_form' );
     add_shortcode( 'pet_search', 'pet_search_form' );
     add_filter('widget_text', 'do_shortcode');
 
+    add_action( 'admin_print_styles','action_admin_print_styles' );
+
+    //Widgets
+    add_action('widgets_init', create_function('', 'return register_widget("PET_Widget_Searchform");'));
+    add_action('widgets_init', create_function('', 'return register_widget("PET_Widget_Display");'));
+
   }
 
-    function especial_queries(){
+    function pet_especial_queries(){
         global $wp;
         $wp->add_query_var('meta_key');
         $wp->add_query_var('meta_value');
         $wp->add_query_var('meta_compare');
     }
 
-  	function remove_pets_support() {
+  	function pet_remove_pets_support() {
   		remove_post_type_support( 'pet', 'excerpt' );
   		remove_post_type_support( 'pet', 'comments' );
   	}
@@ -112,14 +119,14 @@ class PET_MANAGER {
   add_filter('get_header','pet_form');
 
 
-    // Add needed scripts
+    // Add needed scripts  array( 'jquery' )
     function pet_manager_scripts() {
         if( is_page(__('Add a pet','wp_pet'))){
-        wp_register_script( 'custom_js', get_template_directory_uri() . '/js/jquery.custom.js', array( 'jquery' ), '1.0', TRUE );
-        wp_enqueue_script( 'custom_js' );
-        // validation
-        wp_register_script( 'validation', 'http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js', array( 'jquery' ) );
-        wp_enqueue_script( 'validation' );
+	wp_enqueue_script(
+		'check_values',
+		plugins_url('/js/jquery_check.js', __FILE__),
+		array('jquery')
+	);
     }
     }
     add_action( 'wp_enqueue_scripts', 'pet_manager_scripts' );
@@ -130,7 +137,7 @@ class PET_MANAGER {
     function pet_manager_stylesheet() {
         // Respects SSL, Style.css is relative to the current file
         wp_register_style( 'prefix-style', plugins_url('/inc/pet_styles.css', __FILE__) );
-        if( is_single() && 'pet' == get_post_type() || is_archive() || is_page(__('Add a pet','wp_pet'))){wp_enqueue_style( 'prefix-style' );}
+        wp_enqueue_style( 'prefix-style' );
     }
 
     function insert_attachment($file_handler,$post_id,$setthumb='false') {
@@ -171,6 +178,36 @@ class PET_MANAGER {
         );
         wp_insert_post( $addpet );
     }
+
+add_action('admin_menu', 'ada_add_pages');
+
+// action function for above hook
+function ada_add_pages() {
+
+add_submenu_page('edit.php?post_type=pet', __('Options & About','wp_pet'), __('Options & About','wp_pet'), 'manage_options', 'pet_options_page', 'pet_options_page' );
+
+
+}
+
+
+
+function pet_options_page() {
+    include('pet_options_page.php');
+}
+
+
+	function action_admin_print_styles() {
+		global $current_screen;
+
+	?>
+<style type="text/css">
+
+.pet-header{background: url('<?php echo PLUGIN_URL ."/".TC_DIR_NAME . '/inc/img/pet-32.png' ;?>') no-repeat left center;padding:4px 0 4px 30px}
+.donate {font-size:10px;text-align:center; width:20%; margin-right:10px;float:left;padding:5px;background:#f7f7f7}
+.donate:hover {background:#f6f6f6}
+</style>
+	<?php
+	}
 
 
 $PET_MANAGER = new PET_MANAGER();

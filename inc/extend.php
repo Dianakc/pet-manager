@@ -1,6 +1,7 @@
 <?php
 
-function wph_right_now_content_table_pet() {
+/*Add pet in Right Now*/
+function pet_right_now_content() {
  $args = array(
   'public' => true ,
   '_builtin' => false
@@ -8,44 +9,44 @@ function wph_right_now_content_table_pet() {
  $output = 'object';
  $operator = 'and';
  $post_types = get_post_types( $args , $output , $operator );
+
  foreach( $post_types as $post_type ) {
-  $num_posts = wp_count_posts( $post_type->name );
-  $num = number_format_i18n( $num_posts->publish );
-  $text = _n( $post_type->labels->singular_name, $post_type->labels->name , intval( $num_posts->publish ) );
-  if ( current_user_can( 'edit_posts' ) ) {
-   $num = "<a href='edit.php?post_type=$post_type->name'>$num</a>";
-   $text = "<a href='edit.php?post_type=$post_type->name'>$text</a>";
-  }
-  echo '<tr><td class="first b b-' . $post_type->name . '">' . $num . '</td>';
-  echo '<td class="t ' . $post_type->name . '">' . $text . '</td></tr>';
+    $num_posts = wp_count_posts( $post_type->name );
+    $num = number_format_i18n( $num_posts->publish );
+
+    $text = _n( $post_type->labels->singular_name, $post_type->labels->name , intval( $num_posts->publish ) );
+      if ( current_user_can( 'edit_posts' ) ) {
+        $num = "<a href='edit.php?post_type=$post_type->name'>$num</a>";
+        $text = "<a href='edit.php?post_type=$post_type->name'>$text</a>";
+      }
+    echo '<tr><td class="first b b-' . $post_type->name . '">' . $num . '</td>';
+    echo '<td class="t ' . $post_type->name . '">' . $text . '</td></tr>';
  }
 
 }
-add_action( 'right_now_content_table_end' , 'wph_right_now_content_table_pet' );
+add_action( 'right_now_content_table_end' , 'pet_right_now_content' );
 
 
 /* Add pet status column*/
-    function add_columns_info_on_pets($defaults) {
-        $defaults['pet_column'] = __('Pet Info','wp_pet');
-        return $defaults;
-    }
+function add_columns_info_on_pets($defaults) {
+    $defaults['pet_column'] = __('Pet Info','wp_pet');
+    return $defaults;
+}
 
-    function pet_column_info($column_name, $post_ID) {
+function pet_column_info($column_name, $post_ID) {
 
-          if ($column_name == 'pet_column') {
-            $pet_status = wp_get_post_terms($post_ID, 'pet-status');
-            foreach ($pet_status as $status)
-            print '<p><strong>'.__('Status','wp_pet').':</strong> <a title="See all pets in '.$status->name.'" href="edit.php?pet-status='.$status->slug.'&post_type=pet" >'.$status->name.'</a></p>';
+ if ($column_name == 'pet_column') {
+     $pet_status = wp_get_post_terms($post_ID, 'pet-status');
+     foreach ($pet_status as $status)
+     print '<p><strong>'.__('Status','wp_pet').':</strong> <a title="See all pets in '.$status->name.'" href="edit.php?pet-status='.$status->slug.'&post_type=pet" >'.$status->name.'</a></p>';
 
-            $pet_category = wp_get_post_terms($post_ID, 'pet-category');
-            foreach ($pet_category as $category)
-            print '<p><strong>'.__('Category','wp_pet').':</strong> <a title="See all pets in '.$category->name.'" href="edit.php?pet-category='.$category->slug.'&post_type=pet" >'.$category->name.'</a></p>';
-
-
-            }
-    }
-    add_filter('manage_pet_posts_columns', 'add_columns_info_on_pets', 10);
-    add_action('manage_pet_posts_custom_column', 'pet_column_info', 10, 2);
+     $pet_category = wp_get_post_terms($post_ID, 'pet-category');
+     foreach ($pet_category as $category)
+     print '<p><strong>'.__('Category','wp_pet').':</strong> <a title="See all pets in '.$category->name.'" href="edit.php?pet-category='.$category->slug.'&post_type=pet" >'.$category->name.'</a></p>';
+  }
+}
+add_filter('manage_pet_posts_columns', 'add_columns_info_on_pets', 10);
+add_action('manage_pet_posts_custom_column', 'pet_column_info', 10, 2);
 
 
 
@@ -146,8 +147,8 @@ function place_special_pet_content( $content ) {
                 '</ul>'.
                 '</div>';
 
-     if(!empty($petinfo['_data_pet_address'][0])) {
-     $extrapet .= '<h3>'.__('Address','wp_pet').'</h3><p>'.$petinfo['_data_pet_address'][0].'</p>';
+     if(!empty($petinfo['_data_pet_pet_address'][0])) {
+     $extrapet .= '<h3>'.__('Address','wp_pet').'</h3><p>'.$petinfo['_data_pet_pet_address'][0].'</p>';
      };
 
      if(!empty($petinfo['_data_pet_date'][0])) {
@@ -160,12 +161,13 @@ function place_special_pet_content( $content ) {
         $extrapet .= '</p>';
      };
 
-     if(!empty($petinfo['_data_pet_geocode'][0])) {
-     $extrapet .= '<div class="map_image"><img src="http://maps.google.com/maps/api/staticmap?size=600x300&zoom=16&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=glyphish_dogpaw%257CFF6357%7C'.$petinfo['_data_pet_geocode'][0].'&sensor=false" /></div>';
+     if(!empty($petinfo['_data_pet_address'][0])) {
+      $googlemap = str_replace('/ /','+',$petinfo);
+     $extrapet .= '<div class="map_image"><img src="http://maps.google.com/maps/api/staticmap?size=600x300&zoom=16&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=glyphish_dogpaw%257CFF6357%7C'.$petinfo['_data_pet_address'][0].'&sensor=false" /></div>';
      };
 
 
-     if($petinfo['_data_pet_email_option'][0]!='not_email') {
+/*   if($petinfo['_data_pet_email_option'][0]!='not_email') {
      if($petinfo['_data_pet_email_option'][0]=='a_email') {
            $extrapet .= '<h3>'.__('Contact us about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.test_if_meta( $petinfo, '_data_pet_control', '#', ' - ').get_the_title().'" to="'.get_option('admin_email').'"] [contact-field label="'.__('Name','wp_pet').'" type="name" required="true" /] [contact-field label="'.__('Email','wp_pet').'" type="email" required="true" /] [contact-field label="'.__('Phone','wp_pet').'" type="text" /] [contact-field label="'.__('Message','wp_pet').'" type="textarea" required="true" /] [/contact-form]');
      };
@@ -174,6 +176,12 @@ function place_special_pet_content( $content ) {
            $extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'" to="'.$petinfo['_data_pet_another_email'][0].'"] [contact-field label="'.__('Name','wp_pet').'" type="name" required="true" /] [contact-field label="'.__('Email','wp_pet').'" type="email" required="true" /] [contact-field label="'.__('Phone','wp_pet').'" type="text" /] [contact-field label="'.__('Message','wp_pet').'" type="textarea" required="true" /] [/contact-form]');
      };
      }
+*/
+
+     //$extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'" [contact-field label="'.__('Name','wp_pet').'" type="name" required="true" /] [contact-field label="'.__('Email','wp_pet').'" type="email" required="true" /] [contact-field label="'.__('Phone','wp_pet').'" type="text" /] [contact-field label="'.__('Message','wp_pet').'" type="textarea" required="true" /] [/contact-form]');
+     $extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'"][contact-field label="'.__('Your Name','wp_pet').'" type="name" required="1"/][contact-field label="'.__('Your E-mail','wp_pet').'" type="email" required="1"/][contact-field label="'.__('Your Message','wp_pet').'" type="textarea" required="1"/][/contact-form]');
+
+
 
 
      $content = $special.$content.$extrapet;
@@ -215,66 +223,7 @@ function place_special_pet_content_in_pets( $content ) {
 
       $data .= '<h3>'.__('Browse Pets by Status','wp_pet').'</h3><ul>'.wp_list_categories('echo=0&show_count=1&taxonomy=pet-status&title_li=').'</ul>'.
                '<h3>'.__('Browse Pets by Category','wp_pet').'</h3><ul>'.wp_list_categories('echo=0&show_count=1&taxonomy=pet-category&title_li=').'</ul>'.
-
-               '<h3>'.__('Search Pets','wp_pet').'</h3><form method="get" id="pet_search" action="'. home_url() . '/">'.
-               '<input type="hidden" name="post_type" value="pet" />';
-
-      $data.=  '<label>'.__('Status','wp_pet').'</label><select name="pet-status" id="drop-status">';
-      $terms = get_terms('pet-status', array('hide_empty' => 1 ));
-
-      $data .= '<option value=""></option>';
-       foreach ($terms as $term) {
-        $data .= "<option value='$term->slug'" . selected($term->slug, true, false) . ">$term->name</option>";
-       }
-      $data .= '</select>';
-
-
-      $data.=  '<br /><label>'.__('Type','wp_pet').'</label><select name="pet-category" id="pet-category">';
-      $terms = get_terms('pet-category', array('hide_empty' => 1 ));
-
-      $data .= '<option value=""></option>';
-        foreach ($terms as $term) {
-          $data .= "<option value='$term->slug'" . selected($term->slug, true, false) . ">$term->name</option>";
-        }
-      $data .= '</select>';
-
-//      $data.=  '<br /><label>'.__('Gender','wp_pet').'</label>';
-      $terms = get_terms('pet-gender', array('hide_empty' => 1 ));
-
-      $data .= '<option value=""></option>';
-        foreach ($terms as $term) {
-          $data .= "<input type='checkbox' name='pet-gender' value='$term->slug'[]" . ">$term->name";
-        }
-
-      $data.=  '<br /><label>'.__('Size','wp_pet').'</label><select name="pet-size" id="pet-size">';
-      $terms = get_terms('pet-size', array('hide_empty' => 1 ));
-
-      $data .= '<option value=""></option>';
-        foreach ($terms as $term) {
-          $data .= "<option value='$term->slug'" . selected($term->slug, true, false) . ">$term->name</option>";
-        }
-      $data .= '</select>';
-
-      $data.=  '<br /><label>'.__('Age','wp_pet').'</label><select name="pet-ages" id="pet-age">';
-      $terms = get_terms('pet-ages', array('hide_empty' => 1 ));
-
-      $data .= '<option value=""></option>';
-        foreach ($terms as $term) {
-          $data .= "<option value='$term->slug'" . selected($term->slug, true, false) . ">$term->name</option>";
-        }
-      $data .= '</select>';
-
-      $data.=  '<br /><label>'.__('Coat','wp_pet').'</label><select name="pet-coat" id="pet-coat">';
-      $terms = get_terms('pet-coat', array('hide_empty' => 1 ));
-
-      $data .= '<option value=""></option>';
-        foreach ($terms as $term) {
-          $data .= "<option value='$term->slug'" . selected($term->slug, true, false) . ">$term->name</option>";
-        }
-      $data .= '</select>';
-
-      $data.= '<br /><input id="ada_search_submit" type="submit" value="'. __('Go','wp_pet') . '"/>';
-      $data.= '</form>';
+               '<h3>'.__('Search Pets','wp_pet').'</h3>'.do_shortcode('[pet_search]');
     }
 
     return $content.$data;
@@ -282,7 +231,7 @@ function place_special_pet_content_in_pets( $content ) {
 
 
 //print performance
-function performance( $visible = false ) {
+function pet_know_performance( $visible = false ) {
 
     $stat = sprintf(  '%d queries in %.3f seconds, using %.2fMB memory',
         get_num_queries(),
@@ -292,9 +241,9 @@ function performance( $visible = false ) {
 
     echo $visible ? $stat : "<!-- {$stat} -->" ;
 }
- add_action( 'wp_footer', 'performance', 20 );
+ add_action( 'wp_footer', 'pet_know_performance', 20 );
 
-
+/*Change pet post title field*/
 function pet_change_default_title( $title ){
      $screen = get_current_screen();
 
@@ -304,60 +253,92 @@ function pet_change_default_title( $title ){
 
      return $title;
 }
-
 add_filter( 'enter_title_here', 'pet_change_default_title' );
 
 
-
-add_filter( 'the_content', 'place_special_content_387fbvbb', 20 );
-
-function place_special_content_387fbvbb( $content ) {
+/*Place pending mod note*/
+function pet_place_note ( $content ) {
 
     if (is_preview() && 'pet' == get_post_type())
-    $note = '<div class="note">'.__('This post is still waiting for moderator approval. <a href="','wp_pet').get_edit_post_link( get_the_ID()).'">Edit this post and add more info</a></div>';
+    $note = '<div class="note">'.__('This post is still waiting for moderator approval. ','wp_pet').'<a href="'.get_edit_post_link( get_the_ID()).'">'.__('Edit this post and add more info','wp_pet').'</a><br />'.__('<strong>Tip!</strong> Display a map for lost or found pets filling the Special Information section.','wp_pet').'</div>';
+
+    return $content.$note;
+}
+add_filter( 'the_content', 'pet_place_note', 20 );
+
+
+/*Shortcode Search form*/
+function pet_search_form($content) {
+
+     $types = get_terms('pet-category', array('hide_empty' => 1 ));
+     foreach ($types as $type) {
+       $pet_types .= "<option value='$type->slug'" . selected($type->slug, true, false) . ">$type->name"."&nbsp;("."$type->count".")"."</option>";
+     }
+
+     $statuses = get_terms('pet-status', array('hide_empty' => 1 ));
+     foreach ($statuses as $status) {
+       $pet_status .= "<option value='$status->slug'" . selected($status->slug, true, false) . ">$status->name"."&nbsp;("."$status->count".")"."</option>";
+     }
+
+     $genders = get_terms('pet-gender', array('hide_empty' => 1 ));
+     foreach ($genders as $gender) {
+       $pet_genders .= "<option value='$gender->slug'" . selected($gender->slug, true, false) . ">$gender->name"."&nbsp;("."$gender->count".")"."</option>";
+     }
+
+     $sizes = get_terms('pet-size', array('hide_empty' => 1 ));
+     foreach ($sizes as $size) {
+       $pet_sizes .= "<option value='$size->slug'" . selected($size->slug, true, false) . ">$size->name"."&nbsp;("."$size->count".")"."</option>";
+     }
+
+     $ages = get_terms('pet-age', array('hide_empty' => 1 ));
+     foreach ($ages as $age) {
+       $pet_ages .= "<option value='$age->slug'" . selected($size->slug, true, false) . ">$age->name"."&nbsp;("."$age->count".")"."</option>";
+     }
+
+     $searchform .= '<form action="'.get_home_url().'/" method="get" id="searchpetform"><fieldset><ol>'.
+                    '<li id="item-status"><label for="pet_status">'.__('Status','wp_pet').'</label><select id="pet_status" name="pet-status">'.
+                    '<option value="0"></option>'.
+                    $pet_status.
+                    '</select></li>'.
+
+                    '<li id="item-category"><label for="pet_category">'.__('Category','wp_pet').'</label><select id="pet_category" name="pet-category">'.
+                    '<option value="0"></option>'.
+                    $pet_types.
+                    '</select></li>'.
+
+                    '<li id="item-gender"><label for="pet_gender">'.__('Gender','wp_pet').'</label><select id="pet_gender" name="pet-gender">'.
+                    '<option value="0"></option>'.
+                    $pet_genders.
+                    '</select></li>'.
+
+                    '<li id="item-size"><label for="pet_size">'.__('Size','wp_pet').'</label><select id="pet_size" name="pet-size">'.
+                    '<option value="0"></option>'.
+                    $pet_sizes.
+                    '</select></li>'.
+
+                    '<li id="item-age"><label for="pet_size">'.__('Age','wp_pet').'</label><select id="pet_size" name="pet-size">'.
+                    '<option value="0"></option>'.
+                    $pet_ages.
+                    '</select></li>'.
+
+                    '<input type="hidden" name="post_type" value="pet" />'.
+                    '<br /><input type="submit" id="searchpet" name="search" value="'.__('Search pet','wp_pet').'">'.
+                    ''.
+                    ''.
+                    '</ol></fieldset></form>';
+
+     return $searchform;
+}
+
+
+function place_special_content_adv( $content ) {
+
+
+    $note = 'dddd';
 
     return $content.$note;
 }
 
-
-function pet_search_form($content) {
-
-
-$types = get_terms('pet-category', array('hide_empty' => 1 ));
-foreach ($types as $type) {
-  $pet_types .= "<option value='$type->slug'" . selected($type->slug, true, false) . ">$type->name"."&nbsp;("."$type->count".")"."</option>";
-}
-
-$statuses = get_terms('pet-status', array('hide_empty' => 1 ));
-foreach ($statuses as $status) {
-  $pet_status .= "<option value='$status->slug'" . selected($status->slug, true, false) . ">$status->name"."&nbsp;("."$status->count".")"."</option>";
-}
-
-
-
-  $searchform .= '<form action="'.get_home_url().'/" method="get" id="searchpetform">'.
-                 '<label for="pet_gender">'.__('Gender','wp_pet').'</label><select id="pet_gender" name="meta_value">'.
-                 '<option value=""></option>'.
-                 '<option value="'.__('Female','wp_pet').'">'.__('Female','wp_pet').'</option>'.
-                 '<option value="'.__('Male','wp_pet').'">'.__('Male','wp_pet').'</option>'.
-                 '</select><br />'.
-                 '<label for="pet_category">'.__('Category','wp_pet').'</label><select id="pet_category" name="pet-category">'.
-                 '<option value="0"></option>'.
-                 $pet_types.
-                 '</select><br />'.
-                 '<label for="pet_status">'.__('Status','wp_pet').'</label><select id="pet_status" name="pet-status">'.
-                 '<option value="0"></option>'.
-                 $pet_status.
-                 '</select>'.
-                 '<input type="hidden" name="post_type" value="pet" />'.
-                 '<br /><input type="submit" id="searchpet" name="search" value="'.__('Search pet','wp_pet').'">'.
-                 ''.
-                 ''.
-                 '</form>';
-
-  return $searchform;
-}
-
-
+add_filter( 'single_cat_title', 'place_special_content_adv', 2 );
 
 ?>
