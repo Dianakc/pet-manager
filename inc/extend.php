@@ -126,11 +126,11 @@ function place_special_pet_content( $content ) {
     $petinfo = get_post_custom(get_the_ID());
     //print_r($petinfo); //uncomment to see all post meta in everypost
 
-    if ( 'pet' == get_post_type() && is_single()){
+
 
 
     $special .= '<div class="pet_info pet_'.get_the_id().'" >'.
-                '<figure>'.get_the_post_thumbnail($postid,'pet_img').'<figcaption><span class="icon '.$status[0]->slug.'" ></span>'.$status[0]->name.'</figcaption></figure>'.
+                '<a href="'.get_permalink($post->ID).'"><figure>'.get_the_post_thumbnail($postid,'pet_img').'<figcaption><span class="icon '.$status[0]->slug.'" ></span>'.$status[0]->name.'</figcaption></figure></a>'.
                 '<ul>'.
                 '<li><span>'.__('In','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-category').'</li>'.
                 '<li><span>'.__('Gender','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-gender').'</li>'.
@@ -177,46 +177,17 @@ function place_special_pet_content( $content ) {
       $extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'"][contact-field label="'.__('Your Name','wp_pet').'" type="name" required="1"/][contact-field label="'.__('Your E-mail','wp_pet').'" type="email" required="1"/][contact-field label="'.__('Your Message','wp_pet').'" type="textarea" required="1"/][/contact-form]');
      }
 
-/*
-     if($petinfo['_data_pet_email_option'][0]=='t_email') {
-           $extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'" to="'.$petinfo['_data_pet_another_email'][0].'"] [contact-field label="'.__('Name','wp_pet').'" type="name" required="true" /] [contact-field label="'.__('Email','wp_pet').'" type="email" required="true" /] [contact-field label="'.__('Phone','wp_pet').'" type="text" /] [contact-field label="'.__('Message','wp_pet').'" type="textarea" required="true" /] [/contact-form]');
-     };
-     }
-*/
 
-     //$extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'" [contact-field label="'.__('Name','wp_pet').'" type="name" required="true" /] [contact-field label="'.__('Email','wp_pet').'" type="email" required="true" /] [contact-field label="'.__('Phone','wp_pet').'" type="text" /] [contact-field label="'.__('Message','wp_pet').'" type="textarea" required="true" /] [/contact-form]');
-//     $extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'"][contact-field label="'.__('Your Name','wp_pet').'" type="name" required="1"/][contact-field label="'.__('Your E-mail','wp_pet').'" type="email" required="1"/][contact-field label="'.__('Your Message','wp_pet').'" type="textarea" required="1"/][/contact-form]');
-
-
-
-
+    if ( 'pet' == get_post_type() && is_single()){
      $content = $special.$content.$extrapet;
+     return $content;
+     }
 
-   }
+    if ( 'pet' == get_post_type() && is_archive()){
+     $content = $special;
+     return $content;
+     }
 
-    if ( 'pet' == get_post_type() && is_archive()){ //the same thing above but it prints things instead
-        print   '<div class="pet_info pet_'.$post->ID.'" ><a href="#"><figure>'.get_the_post_thumbnail($post->ID,'pet_img').'<figcaption><span class="icon '.$status[0]->slug.'" ></span>'.$status[0]->name.'</figcaption></figure></a>';
-        print   '<ul>'.
-                '<li><span>'.__('In','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-category').'</li>'.
-                '<li><span>'.__('Gender','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-gender').'</li>'.
-                '<li><span>'.__('Size','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-size').'</li>'.
-                '<li><span>'.__('Age','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-age').'</li>'.
-                '<li><span>'.__('Colors','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-color', '', ', ', '' ).'</li>'.
-                '<li><span>'.__('Breed','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-breed', '', ', ', '' ).'</li>'.
-                '</ul>'.
-
-                '<ul>'.
-                test_if_meta( $petinfo, '_data_pet_vaccines', '<li><span>'.__('Vaccines','wp_pet').':</span> ', '</li>').
-                '<li><span>'.__('Coat','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-coat').'</li>'.
-                '<li><span>'.__('Pattern','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-pattern', '', ', ', '' ).'</li>'.
-                test_if_meta( $petinfo, '_data_pet_fee', '<li><span>'.__('Fee','wp_pet').':</span> ', '</li>').
-                '<li><span>'.__('Added','wp_pet').'</span> '.get_the_date().'</li>'.
-                '<li><span>'.__('Modified','wp_pet').'</span> '.get_the_modified_date().'</li>'.
-                '</ul>'.
-                '</div>';
-    }
-
-    return $content;
 }
 
 //Special content for Pet Page
