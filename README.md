@@ -27,9 +27,7 @@ Refer to <a href="http://codex.wordpress.org/Custom_Fields" target="_blank">Cust
 <code>_data_pet_control</code></p>
 
 <h4>Required Plugins</h4>
-<p><b><a target="_blank" href="http://jetpack.me">Jetpack by WordPress</a></b></p>
-<p>OR</p>
-<p><b><a target="_blank" href="http://wordpress.org/extend/plugins/slimjetpack/">Slim Jetpack</a></b></p>
+<p><b><a target="_blank" href="http://jetpack.me">Jetpack by WordPress</a></b> OR <b><a target="_blank" href="http://wordpress.org/extend/plugins/slimjetpack/">Slim Jetpack</a></b></p>
 
 <h4>Thanks to...</h4>
 <p><b><a target="_blank" href="https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress">Custom Metaboxes and Fields for WordPress</a></b></p>
