@@ -1,7 +1,7 @@
 <div id="ada-form">
 
 <?php if(is_user_logged_in()): ?>  <!-- Check if is logged -->
-    <div id="add-job">
+    <div id="add-pet-form">
 
 
 <script>
@@ -21,49 +21,45 @@ validClass: "success",
             },
             pet_status:{
                 required: true,
-                email: false,
             },
             pet_category:{
                 required: true,
-                email: false,
             },
             pet_size:{
                 required: true,
-                email: false,
             },
             pet_gender:{
                 required: true,
-                email: false,
             },
-            pet_age:{
-                required: true,
-                email: false,
-            },
-            vaccines: "required"
+            pet_age: "required",
+            pet_vaccines: "required",
+            pet_email_option: "required"
         },
         messages: {
             petname: {
-                required: "<?php _e('* Required field', 'wp_pet'); ?>",
-                minlength: "<?php _e('* Pet name must be at least 3 letters long', 'wp_pet'); ?>"
+                required: "<?php _e('Required field &#9650;', 'wp_pet'); ?>",
+                minlength: "<?php _e('Pet name must be at least 3 letters long', 'wp_pet'); ?>"
             },
             pet_status: {
-                required: "<?php _e('* Required field', 'wp_pet'); ?>",
+                required: "<?php _e('Required field &#9658;', 'wp_pet'); ?>",
             },
             pet_category: {
-                required: "<?php _e('* Required field', 'wp_pet'); ?>",
+                required: "<?php _e('Required field &#9658;', 'wp_pet'); ?>",
             },
             pet_size: {
-                required: "<?php _e('* Required field', 'wp_pet'); ?>",
+                required: "<?php _e('Required field &#9658;', 'wp_pet'); ?>",
             },
             pet_gender: {
-                required: "<?php _e('* Required field', 'wp_pet'); ?>",
+                required: "<?php _e(' Required field &#9658;', 'wp_pet'); ?>",
             },
             pet_age: {
-                required: "<?php _e('* Required field', 'wp_pet'); ?>",
+                required: "<?php _e('Required field &#9658;', 'wp_pet'); ?>",
             },
-            vaccines: "<?php _e('* Required field', 'wp_pet'); ?>"
+            pet_vaccines: "<?php _e('Required field &#9658;', 'wp_pet'); ?>",
+            pet_email_option: "<?php _e('Required field', 'wp_pet'); ?>"
 
         },
+
     });
 
 });
@@ -71,15 +67,13 @@ validClass: "success",
 
     <form id="new_post" name="new_post" method="post" action="new_pet" class="wpcf7-form" enctype="multipart/form-data"> <!-- Form starts -->
 
-
-
-        <h2><?php _e('Quick Add', 'wp_pet'); ?></h2>
         <p><?php _e('Fill the pet information here, you can add and change all info anytime. Required fields are marked *', 'wp_pet'); ?></p>
 
           <fieldset>
 				  <label for="petname"><?php _e('Pet name', 'wp_pet'); ?>*</label>
 				  <input type="text" id="petname" tabindex="6" name="petname" class="required" style="width:98%"/><br /><br />
 
+        <label for="pet-description"><?php _e('Description', 'wp_pet'); ?>*</label>
         <?php
              $set = array(
              'wpautop' => true,
@@ -99,9 +93,9 @@ validClass: "success",
           </fieldset>
 
           <fieldset name="pet-info">
-          <ol class="listpetinfo">
 
-             <li>
+          <ol class="listpetinfo">
+                <li>
                 <label for="pet-status"><?php _e('Status', 'wp_pet'); ?>*</label>
                 <select name="pet_status" id="pet_status" tabindex="9" class="required">
                 <option value=""></option>
@@ -110,9 +104,10 @@ validClass: "success",
                     foreach ($terms as $term) {echo "<option id='pet_status' value='$term->slug'>$term->name</option>"; }
                     ?>
                 </select>
-             </li>
+                </li>
 
-             <li>
+
+                <li>
                 <label for="pet-category"><?php _e('Category', 'wp_pet'); ?>*</label>
                 <select name="pet_category" id="pet_category" tabindex="9" class="required">
                 <option value=""></option>
@@ -121,9 +116,9 @@ validClass: "success",
                     foreach ($terms as $term) {echo "<option id='pet_category' value='$term->slug'>$term->name</option>"; }
                     ?>
                 </select>
-             </li>
+                </li>
 
-             <li>
+                <li>
                 <label for="pet-gender"><?php _e('Gender', 'wp_pet'); ?>*</label>
                 <select name="pet_gender" id="pet_gender" tabindex="9" class="required">
                 <option value=""></option>
@@ -132,9 +127,9 @@ validClass: "success",
                     foreach ($terms as $term) {echo "<option id='pet_gender' value='$term->slug'>$term->name</option>"; }
                     ?>
                 </select>
-             </li>
+                </li>
 
-             <li>
+                <li>
                 <label for="pet-size"><?php _e('Size', 'wp_pet'); ?>*</label>
                 <select name="pet_size" id="pet_size" tabindex="9" class="required">
                 <option value=""></option>
@@ -143,9 +138,9 @@ validClass: "success",
                     foreach ($terms as $term) {echo "<option id='pet_size' value='$term->slug'>$term->name</option>"; }
                     ?>
                 </select>
-             </li>
+                </li>
 
-             <li style="border-bottom:0;">
+                <li>
                 <label for="pet-age"><?php _e('Age', 'wp_pet'); ?>*</label>
                 <select name="pet_age" id="pet_age" tabindex="9" class="required">
                 <option value=""></option>
@@ -154,9 +149,24 @@ validClass: "success",
                     foreach ($terms as $term) {echo "<option id='pet_age' value='$term->slug'>$term->name</option>"; }
                     ?>
                 </select>
-             </li>
+                </li>
           </ol>
         </fieldset>
+
+        <fieldset>
+          <label for="pet-breed"><?php _e('Pet breeds', 'wp_pet'); ?></label><br />
+          <ul class="list_color">
+          <?php
+            $breeds = get_terms('pet-breed', 'orderby=id&hide_empty=0');
+            $counter = 0;
+              foreach ($breeds as $breed) {
+                $counter++;
+                  $option = '<li><input type="checkbox" name="pet_breed[]" id="'.$breed->slug.'" value="'.$breed->slug.'">'.$breed->name.'</li>';
+                  echo $option;
+              }
+          ?>
+          </ul>
+          </fieldset>
 
         <fieldset>
           <label for="pet-colors"><?php _e('Pet colors', 'wp_pet'); ?></label><br />
@@ -174,7 +184,7 @@ validClass: "success",
           </fieldset>
 
           <fieldset>
-          <label for="pet-coats"><?php _e('Pet coat', 'wp_pet'); ?></label><br />
+          <label for="pet-coat"><?php _e('Pet coat', 'wp_pet'); ?></label><br />
           <ul class="list_coats">
           <?php
             $coats = get_terms('pet-coat', 'orderby=id&hide_empty=0');
@@ -189,33 +199,66 @@ validClass: "success",
           </fieldset>
 
         <fieldset>
-          <label for="pet-pattern"><?php _e('Pattern', 'wp_pet'); ?></label>
+          <label for="pet-pattern" class="s_label"><?php _e('Pattern', 'wp_pet'); ?></label>
             <select name="pet_pattern" id="pet_gender" tabindex="9">
                 <option value=""></option>
                   <?php
-                    $terms = get_terms('pet-pattern', array('hide_empty' => 0));
+                    $terms = get_terms('pet-pattern', array('hide_empty' => FALSE));
                     foreach ($terms as $term) {echo "<option id='pet_pattern' value='$term->slug'>$term->name</option>"; }
                     ?>
             </select>
         </fieldset>
 
         <fieldset>
-          <span class="fieldt"><label for="pet_vaccines"><?php _e('Vaccines', 'wp_pet'); ?></label>
-            <input type="radio"  tabindex="24" name="pet_vaccines"  value="<?php _e('Vaccinated', 'wp_pet'); ?>" /><span class="pet_vaccines"><?php _e('Vaccinated', 'wp_pet'); ?>&nbsp;&nbsp;</span>
-            <input type="radio" tabindex="25" name="pet_vaccines"  value="<?php _e('Dose Interval', 'wp_pet'); ?>" /><span class="pet_vaccines"><?php _e('Dose Interval', 'wp_pet'); ?>&nbsp;&nbsp;</span>
-            <input type="radio" tabindex="23"  name="pet_vaccines"  value="<?php _e('Unknown', 'wp_pet'); ?>" /><span class="pet_vaccines"><?php _e('Unknown', 'wp_pet'); ?></span>
+        <ol class="listpetinfo">
+
+          <li>
+            <label for="pet_vaccines"><?php _e('Vaccines', 'wp_pet'); ?></label>
+            <select name="pet_vaccines" id="pet_vaccines" tabindex="9">
+            <option value=""></option>
+            <option tabindex="23" name="pet_vaccines"  value="<?php _e('Vaccinated', 'wp_pet'); ?>" /><?php _e('Vaccinated', 'wp_pet'); ?></option>
+            <option tabindex="24" name="pet_vaccines"  value="<?php _e('Dose Interval', 'wp_pet'); ?>" /><?php _e('Dose Interval', 'wp_pet'); ?></option>
+            <option tabindex="25" name="pet_vaccines"  value="<?php _e('Unknown', 'wp_pet'); ?>" /><?php _e('Unknown', 'wp_pet'); ?></option>
+            </select>
+          </li>
+
+          <li>
+          <label for="pet-desex"><?php _e('Desexed', 'wp_pet'); ?></label>
+            <select name="pet_desex" id="pet_desex" tabindex="9">
+                <option value=""></option>
+                <option value="<?php _e('Desexed', 'wp_pet'); ?>"><?php _e('Desexed', 'wp_pet'); ?></option>
+                <option value="<?php _e('No desexed', 'wp_pet'); ?>"><?php _e('No desexed', 'wp_pet'); ?></option>
+            </select>
+          </li>
+
+          <li>
+          <label for="pet-needs"><?php _e('Special needs', 'wp_pet'); ?></label>
+            <select name="pet_needs" id="pet_needs" tabindex="9">
+                <option value=""></option>
+                <option value="<?php _e('Special needs', 'wp_pet'); ?>"><?php _e('Special needs', 'wp_pet'); ?></option>
+                <option value="<?php _e('No special needs', 'wp_pet'); ?>"><?php _e('No special needs', 'wp_pet'); ?></option>
+            </select>
+            </li>
+          </ol>
+        </fieldset>
+
+        <fieldset>
+          <span class="fieldt"><label for="pet_email_option"><?php _e('Contact', 'wp_pet'); ?>*</label>
+            <p><?php _e('Set to display or not the contact form on this pet page so users can contact you by email.', 'wp_pet'); ?></p>
+            <input class="required" type="radio"  tabindex="24" name="pet_email_option"  value="yes" /><span class="pet_email_option"><?php _e('Yes', 'wp_pet'); ?>&nbsp;&nbsp;</span>
+            <input type="radio" tabindex="25" name="pet_email_option"  value="no" /><span class="pet_email_option"><?php _e('No', 'wp_pet'); ?>&nbsp;&nbsp;</span>
           </span>
         </fieldset>
 
       <fieldset name="site-image" class="site-image">
         <input type="file" name="image" class="file_input_hidden site-image file_upload" onchange="javascript: document.getElementById('fileName').value = this.value" />
-        <br /><?php _e('Pet image should be squared, 200 width x 200 height at last', 'wp_pet'); ?>
+        <br /><?php _e('200 width x 200 height at least', 'wp_pet'); ?>
       </fieldset>
 
       <fieldset>
         <h3><?php _e('Lost & Found Information','wp_pet');?></h3>
         <p><?php _e('Add an address here to display a map if your lost or found a wondering pet.','wp_pet');?></p>
-        <label for="pet_address"><?php _e('Address', 'wp_pet'); ?>*</label>
+        <label for="pet_address"><?php _e('Address', 'wp_pet'); ?></label>
 				<input type="text" value="" id="pet_address" tabindex="3" name="pet_address" style="width:98%"/><br />
       </fieldset>
 

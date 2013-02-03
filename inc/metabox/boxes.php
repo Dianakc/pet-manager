@@ -61,13 +61,13 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 			array(
        	'name' => __('Age','wp_pet'),
        	'id' => $prefix . 'pet_age',
-       	'taxonomy' => 'pet-ages', 
+       	'taxonomy' => 'pet-age',
        	'type' => 'taxonomy_select',
 			),
 			array(
 				'name' => __('Breed','wp_pet'),
 				'id'   => $prefix . 'pet_breed',
-        'taxonomy' => 'pet-breeds', 
+        'taxonomy' => 'pet-breed',
 				'type' => 'taxonomy_multicheck',
 			),
 			array(
@@ -97,12 +97,42 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 			array(
 				'name'    => __('Vaccines','wp_pet'),
 				'id'      => $prefix . 'pet_vaccines',
-				'type'    => 'select',
+				'type'    => 'radio_inline',
 				'options' => array(
-          array( 'name' => '', 'value' => ''),
 					array( 'name' => __('Vacinated','wp_pet'), 'value' => __('Vacinated','wp_pet'), ),
 					array( 'name' => __('Dose Interval','wp_pet'), 'value' => __('Dose Interval','wp_pet'), ),
 					array( 'name' => __('Unknown','wp_pet'), 'value' => __('Unknown','wp_pet'), ),
+				),
+			),
+			array(
+				'name'    => __('Desexed','wp_pet'),
+				'id'      => $prefix . 'pet_desex',
+				'type'    => 'select',
+				'options' => array(
+					array( 'name' => '', 'value' => '', ),
+					array( 'name' => __('Desexed','wp_pet'), 'value' => __('Desexed','wp_pet'), ),
+					array( 'name' => __('No desexed','wp_pet'), 'value' => __('No desexed','wp_pet'), ),
+				),
+			),
+
+			array(
+				'name'    => __('Special needs','wp_pet'),
+				'id'      => $prefix . 'pet_needs',
+				'type'    => 'select',
+				'options' => array(
+          array( 'name' => '', 'value' => '', ),
+					array( 'name' => __('Special needs','wp_pet'), 'value' => __('Special needs','wp_pet'), ),
+					array( 'name' => __('No special needs','wp_pet'), 'value' => __('No special needs','wp_pet'), ),
+				),
+			),
+			array(
+				'name'    => __('Contact','wp_pet'),
+				'desc'    => __('Set to display or not the contact form on this pet page so users can contact you by email.','wp_pet'),
+				'id'      => $prefix . 'pet_email_option',
+				'type'    => 'radio',
+				'options' => array(
+					array( 'name' => __('Yes','wp_pet'), 'value' => 'yes', ),
+					array( 'name' => __('No','wp_pet'), 'value' => 'no', ),
 				),
 			),
 			array(
@@ -117,7 +147,7 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 				'id'   => $prefix . 'pet_address',
 				'type' => 'text_medium',
 			),
-			/*array(
+/*			array(
 				'name' => __('Date','wp_pet'),
 				'desc' => '',
 				'id'   => $prefix . 'pet_date',
@@ -134,25 +164,14 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 				'desc' => __('Inform a e-mail address so people can contact you.','wp_pet'),
 				'id'   => $prefix . 'pet_title_3',
 				'type' => 'title',
-			),
-			array(
-				'name'    => __('Inquiries by e-mail','wp_pet'),
-				'desc'    => '',
-				'id'      => $prefix . 'pet_email_option',
-				'type'    => 'radio',
-				'options' => array(
-					array( 'name' => __('Do not display email form','wp_pet'), 'value' => 'not_email', ),
-					array( 'name' => __('Send email to site admin','wp_pet'), 'value' => 'a_email', ),
-					array( 'name' => __('Send to following e-mail','wp_pet'), 'value' => 't_email', ),
-				),
-			),
-*/
-			array(
+			),*/
+
+/*		array(
 				'name' => __('Contact e-mail','wp_pet'),
 				'desc' => '',
 				'id'   => $prefix . 'pet_another_email',
 				'type' => 'text_medium',
-			),
+			),*/
 		),
 	);
 

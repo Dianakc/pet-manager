@@ -15,6 +15,10 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POS
     $petaddress = $_POST['pet_address'];
     $petvac = $_POST['pet_vaccines'];
 
+    $petdesex = $_POST['pet_desex'];
+    $petneeds = $_POST['pet_needs'];
+    $petcontact = $_POST['pet_email_option'];
+
 
 
     // ADD THE FORM INPUT TO $new_post ARRAY
@@ -30,6 +34,10 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POS
     'pet_address'	=>	$petaddress,
     'pet_vaccines'	=>	$petvac,
 
+    'pet_desex'	=>	$petdesex,
+    'pet_needs'	=>	$petneeds,
+    'pet_email_option'	=>	$petcontact,
+
     );
 
 
@@ -40,6 +48,8 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POS
     wp_set_post_terms($pid,array($_POST['pet_status']),'pet-status',true);
     wp_set_post_terms($pid,array($_POST['pet_category']),'pet-category',true);
     wp_set_post_terms($pid,array($_POST['pet_gender']),'pet-gender',true);
+
+    wp_set_post_terms($pid,array($_POST['pet_pattern']),'pet-pattern',true);
     wp_set_post_terms($pid,array($_POST['pet_size']),'pet-size',true);
     wp_set_post_terms($pid,array($_POST['pet_age']),'pet-age',true);
 
@@ -61,6 +71,14 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POS
       }
     }
 
+    if(isset($_POST['pet_breed'])){
+      if (is_array($_POST['pet_breed'])) {
+        foreach($_POST['pet_breed'] as $value){
+         wp_set_post_terms($pid,$value,'pet-breed',true);
+        }
+      }
+    }
+
 
 
     //REDIRECT TO THE NEW POST ON SAVE
@@ -71,6 +89,10 @@ if( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) &&  $_POS
     add_post_meta($pid, '_data_pet_vaccines', $petvac, true);
     add_post_meta($pid, '_data_pet_address', $petaddress, true);
     add_post_meta($pid, '_data_pet_another_email', $useremail, true);
+
+    add_post_meta($pid, '_data_pet_desex', $petdesex, true);
+    add_post_meta($pid, '_data_pet_needs', $petneeds, true);
+    add_post_meta($pid, '_data_pet_email_option', $petcontact, true);
 
 
   if ($_FILES) {

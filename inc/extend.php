@@ -94,6 +94,8 @@ add_action('manage_pet_posts_custom_column', 'pet_img_content_only', 10, 2);
     add_filter('manage_pet_posts_columns', 'add_columns_control_for_pets', 10);
     add_action('manage_pet_posts_custom_column', 'pet_control_column', 10, 2);
 
+
+
 //Functions for auto place content
 
 //Check metadatas
@@ -130,17 +132,20 @@ function place_special_pet_content( $content ) {
     $special .= '<div class="pet_info pet_'.get_the_id().'" >'.
                 '<figure>'.get_the_post_thumbnail($postid,'pet_img').'<figcaption><span class="icon '.$status[0]->slug.'" ></span>'.$status[0]->name.'</figcaption></figure>'.
                 '<ul>'.
-                '<li><span>'.__('Gender','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-gender', '', ', ', '' ).'</li>'.
-                '<li><span>'.__('Size','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-size', '', ', ', '' ).'</li>'.
-                '<li><span>'.__('Age','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-ages', '', ', ', '' ).'</li>'.
-                '<li><span>'.__('Colors','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-color', '', ', ', '' ).'</li>'.
-                '<li><span>'.__('Breed','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-breeds', '', ', ', '' ).'</li>'.
+                '<li><span>'.__('In','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-category').'</li>'.
+                '<li><span>'.__('Gender','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-gender').'</li>'.
+                '<li><span>'.__('Age','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-age').'</li>'.
+                '<li><span>'.__('Breed','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-breed', '', ', ', '' ).'</li>'.
+                '<li><span>'.__('Size','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-size').'</li>'.
+                '<li><span>'.__('Coat','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-coat', '', ', ', '' ).'</li>'.
                 '</ul>'.
 
                 '<ul>'.
-                test_if_meta( $petinfo, '_data_pet_vaccines', '<li><span>'.__('Vaccines','wp_pet').':</span> ', '</li>').
-                '<li><span>'.__('Coat','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-coat', '', ', ', '' ).'</li>'.
+                '<li><span>'.__('Colors','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-color', '', ', ', '' ).'</li>'.
                 '<li><span>'.__('Pattern','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-pattern', '', ', ', '' ).'</li>'.
+                test_if_meta( $petinfo, '_data_pet_vaccines', '<li><span>'.__('Vaccines','wp_pet').':</span> ', '</li>').
+                test_if_meta( $petinfo, '_data_pet_desex', '<li><span>'.__('Desexed','wp_pet').':</span> ', '</li>').
+                test_if_meta( $petinfo, '_data_pet_needs', '<li><span>'.__('Special needs','wp_pet').':</span> ', '</li>').
                 test_if_meta( $petinfo, '_data_pet_fee', '<li><span>'.__('Fee','wp_pet').':</span> ', '</li>').
                 '<li><span>'.__('Added','wp_pet').'</span> '.get_the_date().'</li>'.
                 '<li><span>'.__('Modified','wp_pet').'</span> '.get_the_modified_date().'</li>'.
@@ -167,11 +172,12 @@ function place_special_pet_content( $content ) {
      };
 
 
-/*   if($petinfo['_data_pet_email_option'][0]!='not_email') {
-     if($petinfo['_data_pet_email_option'][0]=='a_email') {
-           $extrapet .= '<h3>'.__('Contact us about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.test_if_meta( $petinfo, '_data_pet_control', '#', ' - ').get_the_title().'" to="'.get_option('admin_email').'"] [contact-field label="'.__('Name','wp_pet').'" type="name" required="true" /] [contact-field label="'.__('Email','wp_pet').'" type="email" required="true" /] [contact-field label="'.__('Phone','wp_pet').'" type="text" /] [contact-field label="'.__('Message','wp_pet').'" type="textarea" required="true" /] [/contact-form]');
-     };
 
+     if($petinfo['_data_pet_email_option'][0]=='yes') {
+      $extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'"][contact-field label="'.__('Your Name','wp_pet').'" type="name" required="1"/][contact-field label="'.__('Your E-mail','wp_pet').'" type="email" required="1"/][contact-field label="'.__('Your Message','wp_pet').'" type="textarea" required="1"/][/contact-form]');
+     }
+
+/*
      if($petinfo['_data_pet_email_option'][0]=='t_email') {
            $extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'" to="'.$petinfo['_data_pet_another_email'][0].'"] [contact-field label="'.__('Name','wp_pet').'" type="name" required="true" /] [contact-field label="'.__('Email','wp_pet').'" type="email" required="true" /] [contact-field label="'.__('Phone','wp_pet').'" type="text" /] [contact-field label="'.__('Message','wp_pet').'" type="textarea" required="true" /] [/contact-form]');
      };
@@ -179,7 +185,7 @@ function place_special_pet_content( $content ) {
 */
 
      //$extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'" [contact-field label="'.__('Name','wp_pet').'" type="name" required="true" /] [contact-field label="'.__('Email','wp_pet').'" type="email" required="true" /] [contact-field label="'.__('Phone','wp_pet').'" type="text" /] [contact-field label="'.__('Message','wp_pet').'" type="textarea" required="true" /] [/contact-form]');
-     $extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'"][contact-field label="'.__('Your Name','wp_pet').'" type="name" required="1"/][contact-field label="'.__('Your E-mail','wp_pet').'" type="email" required="1"/][contact-field label="'.__('Your Message','wp_pet').'" type="textarea" required="1"/][/contact-form]');
+//     $extrapet .= '<h3>'.__('Contact about ','wp_pet').get_the_title().'</h3>'.do_shortcode('[contact-form subject="'.get_bloginfo('title').' - '.get_the_title().'"][contact-field label="'.__('Your Name','wp_pet').'" type="name" required="1"/][contact-field label="'.__('Your E-mail','wp_pet').'" type="email" required="1"/][contact-field label="'.__('Your Message','wp_pet').'" type="textarea" required="1"/][/contact-form]');
 
 
 
@@ -189,18 +195,19 @@ function place_special_pet_content( $content ) {
    }
 
     if ( 'pet' == get_post_type() && is_archive()){ //the same thing above but it prints things instead
-        print   '<div class="pet_info pet_'.$post->ID.'" ><figure>'.get_the_post_thumbnail($post->ID,'pet_img').'<figcaption><span class="icon '.$status[0]->slug.'" ></span>'.$status[0]->name.'</figcaption></figure>';
+        print   '<div class="pet_info pet_'.$post->ID.'" ><a href="#"><figure>'.get_the_post_thumbnail($post->ID,'pet_img').'<figcaption><span class="icon '.$status[0]->slug.'" ></span>'.$status[0]->name.'</figcaption></figure></a>';
         print   '<ul>'.
-                '<li><span>'.__('Gender','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-gender', '', ', ', '' ).'</li>'.
-                '<li><span>'.__('Size','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-size', '', ', ', '' ).'</li>'.
-                '<li><span>'.__('Age','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-ages', '', ', ', '' ).'</li>'.
+                '<li><span>'.__('In','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-category').'</li>'.
+                '<li><span>'.__('Gender','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-gender').'</li>'.
+                '<li><span>'.__('Size','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-size').'</li>'.
+                '<li><span>'.__('Age','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-age').'</li>'.
                 '<li><span>'.__('Colors','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-color', '', ', ', '' ).'</li>'.
-                '<li><span>'.__('Breed','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-breeds', '', ', ', '' ).'</li>'.
+                '<li><span>'.__('Breed','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-breed', '', ', ', '' ).'</li>'.
                 '</ul>'.
 
                 '<ul>'.
                 test_if_meta( $petinfo, '_data_pet_vaccines', '<li><span>'.__('Vaccines','wp_pet').':</span> ', '</li>').
-                '<li><span>'.__('Coat','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-coat', '', ', ', '' ).'</li>'.
+                '<li><span>'.__('Coat','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-coat').'</li>'.
                 '<li><span>'.__('Pattern','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-pattern', '', ', ', '' ).'</li>'.
                 test_if_meta( $petinfo, '_data_pet_fee', '<li><span>'.__('Fee','wp_pet').':</span> ', '</li>').
                 '<li><span>'.__('Added','wp_pet').'</span> '.get_the_date().'</li>'.
@@ -260,7 +267,7 @@ add_filter( 'enter_title_here', 'pet_change_default_title' );
 function pet_place_note ( $content ) {
 
     if (is_preview() && 'pet' == get_post_type())
-    $note = '<div class="note">'.__('This post is still waiting for moderator approval. ','wp_pet').'<a href="'.get_edit_post_link( get_the_ID()).'">'.__('Edit this post and add more info','wp_pet').'</a><br />'.__('<strong>Tip!</strong> Display a map for lost or found pets filling the Special Information section.','wp_pet').'</div>';
+    $note = '<div class="note">'.__('This post is still waiting for moderator approval. ','wp_pet').'<a href="'.get_edit_post_link( get_the_ID()).'">'.__('Edit this post and add more info','wp_pet').'</a></div>';
 
     return $content.$note;
 }
@@ -316,7 +323,7 @@ function pet_search_form($content) {
                     $pet_sizes.
                     '</select></li>'.
 
-                    '<li id="item-age"><label for="pet_size">'.__('Age','wp_pet').'</label><select id="pet_size" name="pet-size">'.
+                    '<li id="item-age"><label for="pet_age">'.__('Age','wp_pet').'</label><select id="pet_size" name="pet-size">'.
                     '<option value="0"></option>'.
                     $pet_ages.
                     '</select></li>'.
@@ -330,15 +337,36 @@ function pet_search_form($content) {
      return $searchform;
 }
 
+/* Only edit your own posts */
 
-function place_special_content_adv( $content ) {
-
-
-    $note = 'dddd';
-
-    return $content.$note;
+function pet_parse_query_useronly( $wp_query ) {
+    if ( strpos( $_SERVER[ 'REQUEST_URI' ], '/wp-admin/edit.php' ) !== false ) {
+        if ( !current_user_can( 'level_10' ) ) {
+            global $current_user;
+            $wp_query->set( 'author', $current_user->id );
+        }
+    }
 }
 
-add_filter( 'single_cat_title', 'place_special_content_adv', 2 );
+add_filter('parse_query', 'pet_parse_query_useronly' );
+
+/* Add pet thumb in feeds */
+function insertThumbnailRSS($content) {
+global $post;
+if ( has_post_thumbnail( $post->ID ) ){
+
+
+      if ($post->post_type == 'pet')
+      {
+       $content = '' . get_the_post_thumbnail( $post->ID, 'thumbnail' ) . '' . $content;
+
+      }
+
+}
+return $content;
+}
+
+add_filter('the_excerpt_rss', 'insertThumbnailRSS');
+add_filter('the_content_feed', 'insertThumbnailRSS');
 
 ?>

@@ -23,9 +23,9 @@ padding:0;
 }
 
 .pet_info figcaption {
-float:left;position:absolute;
-bottom:-5px;left:26%;
-background:#fff;padding:6px 16px 8px 6px;
+float:none;position:absolute;
+bottom:-5px;left:25%;
+background:#fff;padding:6px 10px 6px 6px;
 -webkit-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.3);
 box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.3);
 font-size:12px;
@@ -47,7 +47,7 @@ border-top:1px solid #fff;
 .pet_info figcaption .icon {
  width:16px;height:16px;
  float:left;
- margin-right:4px;margin-top:5%
+
 }
 
 figcaption .adopt, .pet_btn .adopt {background:url(img/adopt.png) no-repeat}
@@ -70,7 +70,6 @@ figcaption .found, .pet_btn .found {background:url(img/found.png) no-repeat}
 .widget .pet_info li a{line-height:0px;}
 
 .pet_name a {font-size:1.3em;text-decoration:none}
-.pet_name {background:#F9F9F9}
 
 figure.pet_image {
 float:left;
@@ -123,14 +122,14 @@ padding:0;
 
 #new_post fieldset {border:1px solid #eee; padding:10px;margin:10px 0}
 
-#new_post label {font-weight:bold;margin-right:1.5em}
+#new_post label {font-weight:normal;margin-right:1.5em;text-transform:uppercase;font-size:11px}
 
 #new_post .field {display:Table;width:50%;float:left;padding:10px 0; border-bottom:1px solid #eee}
 
 #new_post .petcolor {height:100px;display:block;}
 
-#new_post .invalid {background:#FFFFCC;font-weight:normal}
-#new_post .error {display}
+#new_post .invalid {background:#FFFFCC;font-weight:normal;}
+#new_post .error {display:none}
 
 .note {background:#FFFFCC;padding:10px; display:block; clear:both;border:1px dashed #999; font-size:0.8em;margin:10px 0 0 0; text-align: center }
 
@@ -138,7 +137,9 @@ padding:0;
 
 .list_color li, .list_coats li,.list_patterns li {list-style-type:none; display:inline;margin:0;float:left;clear:right}
 
-.listpetinfo li {list-style:none;padding:5px 0;border-bottom:1px solid #eee;margin:0}
+fieldset .listpetinfo {;padding:0;margin:0;}
+fieldset .listpetinfo li {list-style:none;padding:5px 0 5px 0;border-bottom:1px solid #eee;margin:0}
+fieldset .listpetinfo label, .s_label {width:100px;float:left;padding:2px 10px 0 0;font-size:10px;}
 
 .list_color , .list_coats ,.list_patterns  {list-style-type:none; display:inline;margin:0;padding:0}
 
@@ -146,7 +147,7 @@ padding:0;
 
 #searchpetform ol li {clear:both;padding:5px ;border-bottom:1px solid #eee}
 #searchpetform ol li:hover {background:#f7f7f7}
-#searchpetform ol li label{width:80px;float:left;padding:2px 5px 0 0;font-size:10px;text-transform:uppercase}
+#searchpetform ol li label{width:55px;float:left;padding:2px 10px 0 0;font-size:10px;text-transform:uppercase}
 
 /*Twenty Twelve fix*/
 single-pet #respond, .single-pet .attachment-post-thumbnail,
@@ -161,3 +162,5 @@ single-pet #respond, .single-pet .attachment-post-thumbnail,
 .tax-pet-gender .attachment-post-thumbnail,
 .post-type-archive-pet .attachment-post-thumbnail
 {display:none}
+
+.single-pet #respond {display:none}

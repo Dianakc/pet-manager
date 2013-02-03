@@ -73,7 +73,7 @@ class PET_Widget_Display extends WP_Widget {
          <?php echo '<div>'.$instance['filter'].'</div>' ? wpautop($text) : $text; ?>
 
          <?php if ( $r ) {  ?>
-		     <p><a href="<?php echo home_url(); ?>/?feed=rss2&amp;post_type=pet"><span class="pet_rss">RSS</span></a></p>
+		     <span><a href="<?php echo home_url(); ?>/?feed=rss2&amp;post_type=pet"><span class="pet_rss">RSS</span></a></span>
          <?php } ?>
 
      		  <?php  while ($q->have_posts()) : $q->the_post(); ?>
@@ -82,7 +82,7 @@ class PET_Widget_Display extends WP_Widget {
             <li><figure class="pet_image"><a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_post_thumbnail('pet_img'); ?></a></figure></li>
             <li class="pet_name"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title(); ?>"><?php the_title(); ?></a></li>
             <li><span><?php _e('In', 'wp_pet'); ?></span>: <?php echo get_the_term_list( get_the_ID(), 'pet-category' , " " ) ?></li>
-            <li><span><?php _e('Gender', 'wp_pet'); ?></span>: <?php  $pd=get_the_ID(); $taxo = wp_get_object_terms($pd, 'pet-gender') ; echo $taxo[0]->name ; ?></li>
+            <li><?php  $pd=get_the_ID(); $taxo = wp_get_object_terms($pd, 'pet-gender') ; echo $taxo[0]->name ; ?></li>
             <li class="pet_btn">
              <a href="<?php the_permalink() ?>" title="<?php _e('Read about', 'wp_pet'); ?> <?php the_title(); ?>">
              <span class="icon <?php  $pd=get_the_ID(); $taxo = wp_get_object_terms($pd, 'pet-status') ; echo $taxo[0]->slug ; ?>"></span><?php  $pd=get_the_ID(); $taxo = wp_get_object_terms($pd, 'pet-status') ; echo $taxo[0]->name ; ?>

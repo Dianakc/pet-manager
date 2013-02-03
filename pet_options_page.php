@@ -11,8 +11,8 @@
         <a class="button" href="edit-tags.php?taxonomy=pet-status&post_type=pet/"><?php _e( 'Add pet status','wp_pet');?></a>
         <a class="button" href="edit-tags.php?taxonomy=pet-gender&post_type=pet/"><?php _e( 'Add pet gender','wp_pet');?></a>
         <a class="button" href="edit-tags.php?taxonomy=pet-size&post_type=pet/"><?php _e( 'Add pet size','wp_pet');?></a>
-        <a class="button" href="edit-tags.php?taxonomy=pet-ages&post_type=pet/"><?php _e( 'Add pet age','wp_pet');?></a>
-        <a class="button" href="edit-tags.php?taxonomy=pet-breeds&post_type=pet/"><?php _e( 'Add pet breed','wp_pet');?></a>
+        <a class="button" href="edit-tags.php?taxonomy=pet-age&post_type=pet/"><?php _e( 'Add pet age','wp_pet');?></a>
+        <a class="button" href="edit-tags.php?taxonomy=pet-breed&post_type=pet/"><?php _e( 'Add pet breed','wp_pet');?></a>
         <a class="button" href="edit-tags.php?taxonomy=pet-coat&post_type=pet/"><?php _e( 'Add pet coat','wp_pet');?></a>
         <a class="button" href="edit-tags.php?taxonomy=pet-pattern&post_type=pet/"><?php _e( 'Add pet pattern','wp_pet');?></a>
         <a class="button" href="edit-tags.php?taxonomy=pet-color&post_type=pet/"><?php _e( 'Add pet color','wp_pet');?></a>
