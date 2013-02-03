@@ -42,6 +42,10 @@ Files <a target="_blank" href="https://github.com/Dianakc/pet-manager/blob/maste
 <code>_data_text_date_timestamp</code>, <code>_data_text_time</code>, <code>_data_pet_email_option</code>, <code>_data_pet_another_email</code>,
 <code>_data_pet_control</code> and <code>_data_pet_fee</code></p>
 
-<h4>Plugins</h4>
+<h4>Required Plugins</h4>
+<p><b><a target="_blank" href="http://jetpack.me">Jetpack by WordPress</a></b></p>
+<p>OR</p>
+<p><b><a target="_blank" href="http://wordpress.org/extend/plugins/slimjetpack/">Slim Jetpack</a></b></p>
+
+<h4>Thanks to...</h4>
 <p><b><a target="_blank" href="https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress">Custom Metaboxes and Fields for WordPress</a></b></p>
-<p><b><a target="_blank" href="jetpack.me">Jetpack by WordPress</a></b></p>
