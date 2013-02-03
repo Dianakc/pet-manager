@@ -138,17 +138,17 @@ function place_special_pet_content( $content ) {
                 '<li><span>'.__('Breed','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-breed', '', ', ', '' ).'</li>'.
                 '<li><span>'.__('Size','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-size').'</li>'.
                 '<li><span>'.__('Coat','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-coat', '', ', ', '' ).'</li>'.
+                '<li><span>'.__('Colors','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-color', '', ', ', '' ).'</li>'.
                 '</ul>'.
 
                 '<ul>'.
-                '<li><span>'.__('Colors','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-color', '', ', ', '' ).'</li>'.
                 '<li><span>'.__('Pattern','wp_pet').'</span> '.get_the_term_list( $post->ID, 'pet-pattern', '', ', ', '' ).'</li>'.
                 test_if_meta( $petinfo, '_data_pet_vaccines', '<li><span>'.__('Vaccines','wp_pet').':</span> ', '</li>').
                 test_if_meta( $petinfo, '_data_pet_desex', '<li><span>'.__('Desexed','wp_pet').':</span> ', '</li>').
                 test_if_meta( $petinfo, '_data_pet_needs', '<li><span>'.__('Special needs','wp_pet').':</span> ', '</li>').
-                test_if_meta( $petinfo, '_data_pet_fee', '<li><span>'.__('Fee','wp_pet').':</span> ', '</li>').
-                '<li><span>'.__('Added','wp_pet').'</span> '.get_the_date().'</li>'.
-                '<li><span>'.__('Modified','wp_pet').'</span> '.get_the_modified_date().'</li>'.
+                '<br />'.
+                '<li class="pet_meta">'.__('Added in','wp_pet').' '.get_the_date().'</li>'.
+                '<li class="pet_meta">'.__('Modified in','wp_pet').' '.get_the_modified_date().'</li>'.
                 '</ul>'.
                 '</div>';
 
