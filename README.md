@@ -16,31 +16,15 @@
 <li>Front end publishing - Let users to post animals.</li>
 </ul>
 
-<h3 style= "color:#FD4747">Fix needed</h3>
-<p>As I said: this plugin is still in development! Some features are not working properly or need better testing.
-The following thigs need some fix:</p>
 
-<p><strong>Search Form</strong> - Mostly offers drop-downs for infos, while is needed to provide checkboxes for some itens such animal gender.
-<a target="_blank" href="https://github.com/Dianakc/pet-manager/blob/master/inc/extend.php">/inc/extend.php line 252 to 255</a>
-</p>
-
-<p>
-<strong>Front end publishing</strong> - The front end form works by placing a shortcode to a page. Right now, is out of date because som
- info was changed from metadatas to taxonomies. Bot form and action page are outdate currently. Form comes with simples jquery check.
-Files <a target="_blank" href="https://github.com/Dianakc/pet-manager/blob/master/inc/form-action.php">/inc/form-action.php</a>
- and <a target="_blank" href="https://github.com/Dianakc/pet-manager/blob/master/inc/form.php">/inc/form.php</a>
-</p>
-
-<p><b>Verify if Jetpack is available or not</b> - Pet manager rely on Jetpack forms, so it should test if the plugin is available before print out shortcodes.</p>
-
-<h3>Some Technical Aspects</h3>
+<h3>Taxonomies and Custom metadatas</h3>
+Refer to <a href="http://codex.wordpress.org/Custom_Fields" target="_blank">Custom Fields</a> and <a href="http://codex.wordpress.org/Taxonomies" target="_blank">Taxonomies</a>.
 
 <p><b>Custom post type:</b> <code>pet</code></p>
 <p><b>Taxonomies:</b> <code>pet-type</code>, <code>pet-status</code>, <code>pet-color</code>, <code>pet-gender</code>,
- <code>pet-ages</code>, <code>pet-breeds</code>, <code>pet-size</code>, <code>pet-coat</code> and <code>pet-pattern</code></p>
-<p><b>Metadata:</b> <code>_data_pet_vaccines</code>, <code>_data_pet_address</code>, <code>_data_pet_geocode</code>, 
-<code>_data_text_date_timestamp</code>, <code>_data_text_time</code>, <code>_data_pet_email_option</code>, <code>_data_pet_another_email</code>,
-<code>_data_pet_control</code> and <code>_data_pet_fee</code></p>
+ <code>pet-age</code>, <code>pet-breed</code>, <code>pet-size</code>, <code>pet-coat</code> and <code>pet-pattern</code></p>
+<p><b>Metadata:</b> <code>_data_pet_vaccines</code>, <code>_data_pet_desex</code>, <code>_data_pet_needs</code><code>_data_pet_address</code>, <code>_data_pet_email_option</code>,
+<code>_data_pet_control</code></p>
 
 <h4>Required Plugins</h4>
 <p><b><a target="_blank" href="http://jetpack.me">Jetpack by WordPress</a></b></p>
