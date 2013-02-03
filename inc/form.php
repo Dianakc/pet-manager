@@ -277,15 +277,13 @@ validClass: "success",
 
 <?php else: ?>
 
-    <div id="caixa-registro">
-    <h2>Registrar-se</h2>
-    <p><strong><a title="Clique para registra-se" href="<?php echo home_url(); ?>/wp-login.php?action=register">Registre-se</a></strong> para anunciar oportunidades no site.</p>
+    <div id="register_box">
+    <h2><?php _e('Register'); ?></h2>
+    <p><?php _e('You must be logged in order to add pets, please login or'); ?> <strong><a title="<?php _e('Click to register'); ?>" href="<?php echo home_url(); ?>/wp-login.php?action=register"><?php _e('Register'); ?></a></strong></p>
     </div>
 
-    <div id="ouline"><span>OU</span></div>
-
-    <div id="caixa-login">
-    <h2>Fazer Login</h2>
+    <div id="login_box">
+    <h2><?php _e('Login'); ?></h2>
     <?php wp_login_form(array( 'value_remember'=> true )); ?>
     </div>
 
