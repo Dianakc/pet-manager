@@ -113,19 +113,17 @@ function custom_post_author_archive($query) {
 add_action('pre_get_posts', 'custom_post_author_archive');
 
 //Place content
-add_filter( 'the_content', 'place_special_pet_content', 20 );
+
 function place_special_pet_content( $content ) {
     global $posts, $wpbd, $post;
 
     $postid = get_the_ID();
-
     $status = wp_get_post_terms( $postid, 'pet-status',array("fields" => "all"));
     $category = wp_get_post_terms( $postid, 'pet-category',array("fields" => "all"));
 
     //all postmeta is here:
     $petinfo = get_post_custom(get_the_ID());
     //print_r($petinfo); //uncomment to see all post meta in everypost
-
 
 
 
@@ -178,20 +176,23 @@ function place_special_pet_content( $content ) {
      }
 
 
-    if ( 'pet' == get_post_type() && is_single()){
-     $content = $special.$content.$extrapet;
-     return $content;
+    if ( 'pet' == get_post_type() && is_single() && is_main_query()){
+     return $special.$content.$extrapet;
      }
 
-    if ( 'pet' == get_post_type() && is_archive()){
-     $content = $special;
-     return $content;
+    if ( 'pet' == get_post_type() && is_archive() && is_main_query()){
+     return $special;
      }
+
+return $content;
 
 }
 
+add_filter( 'the_content', 'place_special_pet_content', 10 );
+
+
+
 //Special content for Pet Page
-add_filter( 'the_content', 'place_special_pet_content_in_pets', 20 );
 
 function place_special_pet_content_in_pets( $content ) {
 
@@ -206,7 +207,7 @@ function place_special_pet_content_in_pets( $content ) {
 
     return $content.$data;
 }
-
+add_filter( 'the_content', 'place_special_pet_content_in_pets', 20 );
 
 //print performance
 function pet_know_performance( $visible = false ) {
