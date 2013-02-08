@@ -125,6 +125,7 @@ function place_special_pet_content( $content ) {
     $petinfo = get_post_custom(get_the_ID());
     //print_r($petinfo); //uncomment to see all post meta in everypost
 
+    $thumbnail;
 
 
     $special .= '<div class="pet_info pet_'.get_the_id().'" >'.
@@ -166,7 +167,7 @@ function place_special_pet_content( $content ) {
 
      if(!empty($petinfo['_data_pet_address'][0])) {
       $googlemap = str_replace('/ /','+',$petinfo);
-     $extrapet .= '<div class="map_image"><img src="http://maps.google.com/maps/api/staticmap?size=600x300&zoom=16&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=glyphish_dogpaw%257CFF6357%7C'.$petinfo['_data_pet_address'][0].'&sensor=false" /></div>';
+     $extrapet .= '<div class="map_image"><img src="http://maps.google.com/maps/api/staticmap?size=650x300&zoom=16&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=glyphish_dogpaw%257CFF6357%7C'.$petinfo['_data_pet_address'][0].'&sensor=false" /></div>';
      };
 
 
@@ -189,6 +190,8 @@ return $content;
 }
 
 add_filter( 'the_content', 'place_special_pet_content', 10 );
+add_filter( 'the_excerpt', 'place_special_pet_content', 11 );
+
 
 
 
