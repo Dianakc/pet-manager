@@ -6,7 +6,7 @@
 
 .pet_info ul  {float:left;}
 
-.pet_info ul li {list-style:none;overflow:hidden;margin:0px;width:230px;font-size:0.8em}
+.pet_info ul li {list-style:none;overflow:hidden;margin:0px;width:200px;font-size:0.8em}
 
 .pet_info ul li span, .pet_info span {font-size:12px;text-transform:uppercase}
 
@@ -162,7 +162,8 @@ single-pet #respond, .single-pet .attachment-post-thumbnail,
 .tax-pet-pattern .attachment-post-thumbnail,
 .tax-pet-size .attachment-post-thumbnail,
 .tax-pet-gender .attachment-post-thumbnail,
-.post-type-archive-pet .attachment-post-thumbnail
+.post-type-archive-pet .attachment-post-thumbnail,
+.leave-reply
 {display:none}
 
 .single-pet #respond {display:none}
