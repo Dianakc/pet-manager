@@ -121,25 +121,23 @@ class PET_MANAGER {
 
     // Add needed scripts  array( 'jquery' )
     function pet_manager_scripts() {
-        if( is_page(__('Add a pet','wp_pet'))){
-	wp_enqueue_script(
-		'check_values',
-		plugins_url('/js/jquery_check.js', __FILE__),
-		array('jquery')
-	);
-    }
+
+	          wp_enqueue_script('jquery_check', plugins_url('/js/jquery_check.js', __FILE__), array('jquery')
+	       );
+
+
     }
     add_action( 'wp_enqueue_scripts', 'pet_manager_scripts' );
-
-
-    add_action( 'wp_enqueue_scripts', 'pet_manager_stylesheet' );
 
     function pet_manager_stylesheet() {
         // Respects SSL, Style.css is relative to the current file
         wp_register_style( 'prefix-style', plugins_url('/inc/pet_styles.css', __FILE__) );
         wp_enqueue_style( 'prefix-style' );
     }
+    add_action( 'wp_enqueue_scripts', 'pet_manager_stylesheet' );
 
+
+    /*Allow upload files*/
     function insert_attachment($file_handler,$post_id,$setthumb='false') {
     	// check to make sure its a successful upload
     	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
