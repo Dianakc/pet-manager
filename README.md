@@ -6,14 +6,15 @@
 
 <h3>Features</h3>
 <ul>
-<li>Zero settings page and panels! - I will try to keep this plugin as simpler as possible, not provinding a lot of settings and panels.</li>
-<li>Works with any well written theme - this plugin do not need theme file editing as long the theme is well written.</li>
-<li>Animals as posts - every animal is kept as a post type, add a pet is like to add blog posts or pages.</li>
-<li>Search form - a complete search form for pets, visitors can search pets within all the specific pet infos.</li>
-<li>Especial info - add specific info for every pet such type, age, size, colors, breed etc.</li>
-<li>Contact form (Jetpack is required) - You can display a contact form for every pet, with specif contact info. e.g. if you post a lost pet, you can add the owner email</li>
-<li>Display Google Maps - lost pet posts can display a static Google Map.</li>
-<li>Front end publishing - Let users to post animals.</li>
+ <li><strong>Animals as posts</strong> - every animal is kept as a post type, add a pet is like to add blog posts or pages.</li>
+	<li><strong>Especial info</strong> - add specific info for every pet such type, age, size, colors, breed etc.</li>
+	<li><strong>Frontend post</strong> - Let users to post animals from a page in your site.</li>
+	<li><strong>Display Widget</strong> - display pets by category, status etc anywhere on your theme.</li>
+	<li><strong>Search form Widget</strong> - a simple search form for pets.</li>
+	<li><strong>Contact form</strong> (Jetpack or SlimJetpack is required) - Display a contact form so vistors can send an email to the post author.</li>
+	<li><strong>Display Google Maps</strong> - display a static Google Map just by provinding an address.</li>
+	<li><strong>Fully localized</strong> - ready to display info in your language.</li>
+	<li><strong>Your own special info</strong> - you do't need to stick to the info, e.g. you can use only the special you need such <em>Status</em>.</li>
 </ul>
 
 
@@ -23,8 +24,7 @@ Refer to <a href="http://codex.wordpress.org/Custom_Fields" target="_blank">Cust
 <p><b>Custom post type:</b> <code>pet</code></p>
 <p><b>Taxonomies:</b> <code>pet-type</code>, <code>pet-status</code>, <code>pet-color</code>, <code>pet-gender</code>,
  <code>pet-age</code>, <code>pet-breed</code>, <code>pet-size</code>, <code>pet-coat</code> and <code>pet-pattern</code></p>
-<p><b>Metadata:</b> <code>_data_pet_vaccines</code>, <code>_data_pet_desex</code>, <code>_data_pet_needs</code><code>_data_pet_address</code>, <code>_data_pet_email_option</code>,
-<code>_data_pet_control</code></p>
+<p><b>Metadata:</b> <code>_data_pet_vaccines</code>, <code>_data_pet_desex</code>, <code>_data_pet_needs</code><code>_data_pet_address</code>, <code>_data_pet_email_option</code></p>
 
 <h4>Required Plugins</h4>
 <p><b><a target="_blank" href="http://jetpack.me">Jetpack by WordPress</a></b> OR <b><a target="_blank" href="http://wordpress.org/extend/plugins/slimjetpack/">Slim Jetpack</a></b></p>
