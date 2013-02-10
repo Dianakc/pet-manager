@@ -6,7 +6,7 @@
 
 <h3>Features</h3>
 <ul>
- <li><strong>Animals as posts</strong> - every animal is kept as a post type, add a pet is like to add blog posts or pages.</li>
+ <li><strong>Pets are posts</strong> - every animal is kept as a post type, add a pet is like to add blog posts or pages.</li>
 	<li><strong>Especial info</strong> - add specific info for every pet such type, age, size, colors, breed etc.</li>
 	<li><strong>Frontend post</strong> - Let users to post animals from a page in your site.</li>
 	<li><strong>Display Widget</strong> - display pets by category, status etc anywhere on your theme.</li>
