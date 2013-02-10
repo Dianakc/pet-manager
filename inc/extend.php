@@ -27,27 +27,6 @@ function pet_right_now_content() {
 add_action( 'right_now_content_table_end' , 'pet_right_now_content' );
 
 
-/* Add pet status column*/
-function add_columns_info_on_pets($defaults) {
-    $defaults['pet_column'] = __('Pet Info','wp_pet');
-    return $defaults;
-}
-
-function pet_column_info($column_name, $post_ID) {
-
- if ($column_name == 'pet_column') {
-     $pet_status = wp_get_post_terms($post_ID, 'pet-status');
-     foreach ($pet_status as $status)
-     print '<p><strong>'.__('Status','wp_pet').':</strong> <a title="See all pets in '.$status->name.'" href="edit.php?pet-status='.$status->slug.'&post_type=pet" >'.$status->name.'</a></p>';
-
-     $pet_category = wp_get_post_terms($post_ID, 'pet-category');
-     foreach ($pet_category as $category)
-     print '<p><strong>'.__('Category','wp_pet').':</strong> <a title="See all pets in '.$category->name.'" href="edit.php?pet-category='.$category->slug.'&post_type=pet" >'.$category->name.'</a></p>';
-  }
-}
-add_filter('manage_pet_posts_columns', 'add_columns_info_on_pets', 10);
-add_action('manage_pet_posts_custom_column', 'pet_column_info', 10, 2);
-
 
 
 /* Display Pet picture*/
@@ -76,24 +55,6 @@ add_action('manage_pet_posts_custom_column', 'pet_column_info', 10, 2);
 
 add_filter('manage_pet_posts_columns', 'pet_picture_columns', 10);
 add_action('manage_pet_posts_custom_column', 'pet_img_content_only', 10, 2);
-
-/* Add pet control column*/
-    function add_columns_control_for_pets($defaults) {
-        $defaults['pet_column_control'] = __('Control #','wp_pet');
-        return $defaults;
-    }
-
-    function pet_control_column($column_name, $post_ID) {
-
-          if ($column_name == 'pet_column_control') {
-            $control = get_post_meta( get_the_ID(), '_data_pet_control');
-
-            if (!empty($control)) print '<p>'.$control[0].'</p>';
-            }
-    }
-    add_filter('manage_pet_posts_columns', 'add_columns_control_for_pets', 10);
-    add_action('manage_pet_posts_custom_column', 'pet_control_column', 10, 2);
-
 
 
 //Functions for auto place content

@@ -50,7 +50,7 @@ function create_pet_category_taxonomy()
 {
 
     $labels = array('name' => _x( 'Category','wp_pet'),'menu_name' => __( 'Categories','wp_pet'), 'add_new_item' => __( 'Add pet category','wp_pet'));
-    register_taxonomy( 'pet-category', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-category', 'public' =>FALSE, 'show_in_nav_menus'=>TRUE, 'rewrite' => array( 'slug' => __('pet-category','wp_pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
+    register_taxonomy( 'pet-category', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-category', 'public' =>FALSE, 'show_admin_column'=>TRUE,'show_in_nav_menus'=>TRUE, 'rewrite' => array( 'slug' => __('pet-category','wp_pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
     flush_rewrite_rules();
 
 }
@@ -60,7 +60,7 @@ function create_pet_status_taxonomy()
 {
 
     $labels = array('name' => _x( 'Status','wp_pet'),'menu_name' => __( 'Status','wp_pet'), __( 'Add pet status','wp_pet'));
-		register_taxonomy( 'pet-status', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-status', 'public' =>FALSE, 'show_in_nav_menus'=>TRUE,'rewrite' => array( 'slug' => __('status','wp_pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
+		register_taxonomy( 'pet-status', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-status', 'public' =>FALSE, 'show_admin_column'=>TRUE,'show_in_nav_menus'=>TRUE,'rewrite' => array( 'slug' => __('status','wp_pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
     flush_rewrite_rules();
 }
 
@@ -70,7 +70,7 @@ function create_pet_genre_taxonomy()
 {
 
     $labels = array('name' => _x( 'Gender','wp_pet'),'menu_name' => __( 'Genders','wp_pet'), 'add_new_item' => __( 'Add pet gender','wp_pet'));
-		register_taxonomy( 'pet-gender', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-gender', 'public' =>FALSE, 'show_in_nav_menus'=>TRUE, 'rewrite' => array( 'slug' => __('genre','wp_pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
+		register_taxonomy( 'pet-gender', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-gender', 'public' =>FALSE, 'show_admin_column'=>TRUE,'show_in_nav_menus'=>TRUE, 'rewrite' => array( 'slug' => __('genre','wp_pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
     flush_rewrite_rules();
 }
 
@@ -124,7 +124,7 @@ function create_pet_color_taxonomy()
 {
 
     $labels = array('name' => _x( 'Color','wp_pet'),'menu_name' => __( 'Colors','wp_pet'), __( 'Add pet color','wp_pet'));
-		register_taxonomy( 'pet-color', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-color', 'public' =>FALSE, 'show_in_nav_menus'=>TRUE,'show_in_nav_menus'=>TRUE, 'rewrite' => array( 'slug' => __('color','wp_pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
+		register_taxonomy( 'pet-color', 'pet', array( 'hierarchical' => false, 'labels' => $labels, 'query_var' => 'pet-color', 'public' =>FALSE, 'show_in_nav_menus'=>TRUE, 'rewrite' => array( 'slug' => __('color','wp_pet'), 'hierarchical' => false,'with_front' => FALSE ) ) );
     flush_rewrite_rules();
 }
 

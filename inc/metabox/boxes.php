@@ -175,34 +175,7 @@ function cmb_sample_metaboxes( array $meta_boxes ) {
 		),
 	);
 
-	$meta_boxes[] = array(
-		'id'         => 'pet_profile_extra',
-		'title'      => 'Pet Manager',
-		'pages'      => array( 'pet' ), // Post type
-		'context'    => 'side',
-		'priority'   => 'low',
-		'show_names' => true, // Show field names on the left
-		'fields' => array(
-			array(
-				'name' => '',
-				'desc' => __('Add extra info on this pet such ID control number or fee (optional)','wp_pet'),
-				'id'   => $prefix . 'pet_title_2',
-				'type' => 'title',
-			),
-			array(
-				'name' => __('ID','wp_pet'),
-				'desc' => '',
-				'id'   => $prefix . 'pet_control',
-				'type' => 'text_small',
-			),
-			array(
-				'name' => __('Fee','wp_pet'),
-				'id'   => $prefix . 'pet_fee',
-        'desc' => '',
-				'type' => 'text_money',
-			),
-		)
-	);
+
 
 	// Add other metaboxes as needed
 

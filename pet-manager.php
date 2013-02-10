@@ -4,7 +4,7 @@ Plugin Name: Pet Manager
 Text Domain: wp_pet
 Domain Path: /lang
 Plugin URI: http://dianakcury.com/dev/pet-manager
-Description: Pet manager helps you keep pets for adoptions or lost pets database with special info for every pet.
+Description: Pet Manager offers a aesy way to keep pet shelters websites
 Version: 1.0
 Author: Diana K. Cury
 Author URI: http://dianakcury.com/

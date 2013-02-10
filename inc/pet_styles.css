@@ -147,7 +147,7 @@ fieldset .listpetinfo label, .s_label {width:100px;float:left;padding:2px 10px 0
 
 /*Search pet form*/
 
-#searchpetform ol li {clear:both;padding:5px ;border-bottom:1px solid #eee}
+#searchpetform ol li {clear:both;padding:5px ;border-bottom:1px solid #eee; list-style:none;margin-left:0}
 #searchpetform ol li:hover {background:#f7f7f7}
 #searchpetform ol li label{width:55px;float:left;padding:2px 10px 0 0;font-size:10px;text-transform:uppercase}
 
