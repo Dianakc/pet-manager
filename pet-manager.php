@@ -5,7 +5,7 @@ Text Domain: wp_pet
 Domain Path: /lang
 Plugin URI: http://dianakcury.com/dev/pet-manager
 Description: Pet Manager offers a aesy way to keep pet shelters websites
-Version: 1.0
+Version: 1.2
 Author: Diana K. Cury
 Author URI: http://dianakcury.com/
 */
@@ -109,12 +109,12 @@ class PET_MANAGER {
 
 
     function pet_shortcode_form($content) {
-      do_action('wp_head','pet_form');
-      include('inc/form.php');
+      //do_action('wp_head','pet_form');
+      include_once('inc/form.php');
     }
 
   function pet_form() {
-    include('inc/form-action.php');
+    include_once('inc/form-action.php');
   }
   add_filter('get_header','pet_form');
 
@@ -131,8 +131,8 @@ class PET_MANAGER {
 
     function pet_manager_stylesheet() {
         // Respects SSL, Style.css is relative to the current file
-        wp_register_style( 'prefix-style', plugins_url('/inc/pet_styles.css', __FILE__) );
-        wp_enqueue_style( 'prefix-style' );
+        wp_register_style( 'pet-style', plugins_url('/inc/pet_styles.css', __FILE__) );
+        wp_enqueue_style( 'pet-style' );
     }
     add_action( 'wp_enqueue_scripts', 'pet_manager_stylesheet' );
 
@@ -155,6 +155,8 @@ class PET_MANAGER {
 
     /* Create some pages such Pets and Add a pet */
     function pet_add_pages(){
+        $pets = '';
+        $addpet= '';
 
         if( get_page_by_title(__('Pets','wp_pet')) == false )
         $pets = array(
@@ -206,6 +208,57 @@ function pet_options_page() {
 </style>
 	<?php
 	}
+
+
+/*Record pet activity in BuddyPress*/
+
+add_action( 'save_post', 'pet_activity_bp_log', 10, 2 );
+function pet_activity_bp_log( $post_id, $post, $user_id = false ) {
+
+if(function_exists('bp_is_active')){
+
+    global $bp, $wpdb;
+
+    $post_id = (int)$post_id;
+    $blog_id = (int)$wpdb->blogid;
+
+    if ( !$user_id )
+    $user_id = (int)$post->post_author;
+
+
+    /* Don't record this if it's not a post */
+    if ( $post->post_type != 'pet' )
+                        return false;
+
+
+    if ( 'publish' == $post->post_status && '' == $post->post_password ) {
+        if ( (int)get_blog_option( $blog_id, 'blog_public' ) || !bp_core_is_multisite() ) {
+        /* Record this in activity streams */
+        $post_permalink = get_permalink( $post_id );
+
+        $thumb = '<a href="'.get_permalink($post_id).'"><figure>'.get_the_post_thumbnail($post_id,'pet_mini').'</figure></a>';
+        $activity_action = sprintf( __( '%s added a new pet: %s', 'wp_pet' ), bp_core_get_userlink( (int)$post->post_author ), '<a href="' . $post_permalink . '">' . $post->post_title . '</a>');
+        $activity_content = $post->post_content.$thumb;
+
+        bp_blogs_record_activity( array(
+                                        'user_id' => (int)$post->post_author,
+                                        'action' => apply_filters( 'bp_blogs_activity_new_post_action', $activity_action, $post, $post_permalink ),
+                                        'content' => apply_filters( 'bp_blogs_activity_new_post_content', $activity_action.$thumb, $post, $post_permalink ),
+                                        'primary_link' => apply_filters( 'bp_blogs_activity_new_post_primary_link', $post_permalink, $post_id ),
+                                        'type' => 'new_blog_post',
+                                        'item_id' => $blog_id,
+                                        'secondary_item_id' => $post_id,
+                                        'recorded_time' => $post->post_date_gmt
+                                ));
+                        }
+        } else
+          bp_blogs_remove_post( $post_id, $blog_id );
+          bp_blogs_update_blogmeta( $blog_id, 'last_activity', bp_core_current_time() );
+          do_action( 'bp_blogs_new_blog_post', $post_id, $post, $user_id );
+    }
+
+}
+
 
 
 $PET_MANAGER = new PET_MANAGER();
