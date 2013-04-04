@@ -22,7 +22,7 @@
 Refer to <a href="http://codex.wordpress.org/Custom_Fields" target="_blank">Custom Fields</a> and <a href="http://codex.wordpress.org/Taxonomies" target="_blank">Taxonomies</a>.
 
 <p><b>Custom post type:</b> <code>pet</code></p>
-<p><b>Taxonomies:</b> <code>pet-type</code>, <code>pet-status</code>, <code>pet-color</code>, <code>pet-gender</code>,
+<p><b>Taxonomies:</b> <code>pet-category</code>, <code>pet-status</code>, <code>pet-color</code>, <code>pet-gender</code>,
  <code>pet-age</code>, <code>pet-breed</code>, <code>pet-size</code>, <code>pet-coat</code> and <code>pet-pattern</code></p>
 <p><b>Metadata:</b> <code>_data_pet_vaccines</code>, <code>_data_pet_desex</code>, <code>_data_pet_needs</code><code>_data_pet_address</code>, <code>_data_pet_email_option</code></p>
 
