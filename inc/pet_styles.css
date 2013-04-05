@@ -10,57 +10,61 @@
 
 .pet_info ul li span, .pet_info span {font-size:12px;text-transform:uppercase}
 
-.pet_info figure {
-float:left;position:relative;
-width:150px;height:150px;margin:0 10px 0 0;
-padding:0;
+.pet_info .pet_image {
+    float:left;position:relative; display:block;
+    width:150px;height:150px;margin:0 10px 0 0;
+    padding:0;
 }
 
-.pet_info figure img {
- margin:0;padding:0px;width:100%;height:auto;
- display:table; -webkit-box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, 0.3);
- box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+.pet_info .pet_image img {
+    margin:0;padding:0px;width:100%;height:auto;
+    display:block; -webkit-box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
-.pet_info figcaption {
-float:none;position:absolute;
-bottom:-5px;left:25%;
-background:#fff;padding:6px 10px 6px 6px;
--webkit-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.3);
-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.3);
-font-size:12px;
-text-shadow: 1px 1px 0px #ffffff;
-filter: dropshadow(color=#ffffff, offx=1, offy=1);
-background: #ffffff;
-background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
-background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
-background: -o-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
-background: -ms-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
-background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
-font-weight: bold  ;
-border-top:1px solid #fff;
+.widget .pet_image{
+  width:100px;height:100px
 }
 
-.pet_info figcaption .icon {
- width:16px;height:16px;
- float:left;
+.pet_info .pet_status {
+    float:none;position:absolute;
+    bottom:-5px;left:25%;
+    background:#fff;padding:6px 10px 6px 6px;
+    -webkit-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+    box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+    font-size:12px;
+    text-shadow: 1px 1px 0px #ffffff;
+    filter: dropshadow(color=#ffffff, offx=1, offy=1);
+    background: #ffffff;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    background: -o-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    background: -ms-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+    font-weight: bold  ;
+    border-top:1px solid #fff;
+}
+
+.pet_info  .pet_status .icon {
+    width:16px;height:16px;
+    float:left;
 
 }
 
-figcaption .adopt, .pet_btn .adopt {background:url(img/adopt.png) no-repeat}
+ .pet_status .adopt, .pet_btn .adopt {background:url(img/adopt.png) no-repeat}
 
-figcaption .adopted, .pet_btn .adopted {background:url(img/adopted.png) no-repeat}
+ .pet_status .adopted, .pet_btn .adopted {background:url(img/adopted.png) no-repeat}
 
-figcaption .lost, .pet_btn .lost {background:url(img/lost.png) no-repeat}
+ .pet_status .lost, .pet_btn .lost {background:url(img/lost.png) no-repeat}
 
-figcaption .found, .pet_btn .found {background:url(img/found.png) no-repeat}
+ .pet_status .found, .pet_btn .found {background:url(img/found.png) no-repeat}
 
 /*Map*/
 .map_image img {
- -webkit-border-radius: 5px; border-radius: 5px;
+    -webkit-border-radius: 5px; border-radius: 5px;
 }
 
 
@@ -72,50 +76,52 @@ figcaption .found, .pet_btn .found {background:url(img/found.png) no-repeat}
 .pet_name a {font-size:1.3em;text-decoration:none}
 
 figure.pet_image {
-float:left;
-width:100px;height:100px;margin:0 10px 0 0;
-padding:0;
+    float:left;
+    width:100px;height:100px;margin:0 10px 0 0;
+    padding:0;
 }
 
 .pet_image  img {
- margin:0;padding:0px;width:100%;height:auto;
- display:table; -webkit-box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, 0.3);
- box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    margin:0;padding:0px;width:100%;height:auto;
+    display:table; -webkit-box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+    box-shadow:  0px 0px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .pet_btn{display:table;
- background: #ffffff;
- background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
- background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%);
- background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
- background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
- background: -o-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
- background: -ms-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
- background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
- filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
- border:1px solid #ddd;
- padding-bottom:3px;
- -webkit-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.1);
- box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+         background: #ffffff;
+         background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQ3JSIgc3RvcC1jb2xvcj0iI2Y2ZjZmNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZGVkZWQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+         background: -moz-linear-gradient(top,  #ffffff 0%, #f6f6f6 47%, #ededed 100%);
+         background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(47%,#f6f6f6), color-stop(100%,#ededed));
+         background: -webkit-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+         background: -o-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+         background: -ms-linear-gradient(top,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+         background: linear-gradient(to bottom,  #ffffff 0%,#f6f6f6 47%,#ededed 100%);
+         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
+         border:1px solid #ddd;
+         padding-bottom:3px;
+         -webkit-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.1);
+         box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.1);
 }
 
 .pet_btn:active{
- -webkit-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.0);
- box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.0);
+    -webkit-box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.0);
+    box-shadow:  0px 0px 3px 0px rgba(0, 0, 0, 0.0);
 }
 
 .pet_btn a{padding:5px 10px 5px 5px;text-decoration:none;color:#fff;font-size:10px;font-weight:bold;}
 .pet_btn span a{color:#fff;}
 .pet_btn .icon { width:16px;height:16px;float:left;margin:5px -2px 0 5px; }
 .pet_btn a:hover > .icon {
- -webkit-transform: scale(1.1);
- -moz-transform: scale(1.1);
- -o-transform: scale(1.1);
- -ms-transform: scale(1.1);
- transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .pet_rss{background:url(img/rss.png) no-repeat;padding-left:20px;margin:0;text-decoration:none}
+
+.widget .pet_size, .widget .pet_age{display:none}
 
 
 /* Add pet form */
@@ -137,7 +143,7 @@ padding:0;
 
 .list_color li, .list_coats li,.list_patterns li {list-style-type:none; display:inline;margin:0;float:left;clear:right}
 
-fieldset .listpetinfo {;padding:0;margin:0;}
+fieldset .listpetinfo {padding:0;margin:0;}
 fieldset .listpetinfo li {list-style:none;padding:5px 0 5px 0;border-bottom:1px solid #eee;margin:0}
 fieldset .listpetinfo label, .s_label {width:100px;float:left;padding:2px 10px 0 0;font-size:10px;}
 
