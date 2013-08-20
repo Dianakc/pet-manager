@@ -1,11 +1,10 @@
-
 <div id="content">
 	<div class="ada-admin">
 		<div class="wrap">
 
       <h2><span class="pet-header"></span><?php _e('Options & About','wp_pet');?></h2>
         <h3><?php _e('Taxonomies','wp_pet');?></h3>
-        <p><?php _e('Pet Manager uses special <a href="http://codex.wordpress.org/Taxonomies" targer="_blank">taxonomies</a> for sort pet post. Before start, add some taxonomies clicking the buttons bellow:','wp_pet');?></p>
+        <p><?php _e('Pet Manager uses special <a href="http://codex.wordpress.org/Taxonomies" target="_blank">taxonomies</a> for sort pet post. Before start, add some taxonomies clicking the buttons bellow:','wp_pet');?></p>
 
         <a class="button" href="edit-tags.php?taxonomy=pet-category&post_type=pet/"><?php _e( 'Add pet category','wp_pet');?></a>
         <a class="button" href="edit-tags.php?taxonomy=pet-status&post_type=pet/"><?php _e( 'Add pet status','wp_pet');?></a>
@@ -52,7 +51,7 @@
         <form target="pagseguro" action="https://pagseguro.uol.com.br/checkout/v2/donation.html" method="post">
         <input type="hidden" name="receiverEmail" value="dianakac@gmail.com" />
         <input type="hidden" name="currency" value="BRL" />
-        <input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/doacoes/180x25-doar-cinza.gif" name="submit" alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+        <input type="image" src="https://p.simg.uol.com.br/out/pagseguro/i/botoes/doacoes/180x25-doar-cinza.gif" name="submit" alt="Pague com PagSeguro - ï¿½ rï¿½pido, grï¿½tis e seguro!" />
         </form>
         </div>
 
