@@ -1,0 +1,860 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Pet Manager v1.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-03-11 18:06:42+0000\n"
+"Last-Translator: hummel <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#. translators: plugin header field 'Name'
+#: pet-manager.php:0
+#@ wp_pet
+msgid "Pet Manager"
+msgstr "Tier Manager"
+
+#. translators: plugin header field 'PluginURI'
+#: pet-manager.php:0
+#@ wp_pet
+msgid "http://dianakcury.com/dev/pet-manager"
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: pet-manager.php:0
+#@ wp_pet
+msgid "Diana K. Cury"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: pet-manager.php:0
+#@ wp_pet
+msgid "http://dianakcury.com/"
+msgstr ""
+
+#: inc/cpt-pets.php:15
+#: pet-manager.php:161
+#: pet-manager.php:163
+#@ wp_pet
+msgid "Pets"
+msgstr "Tiere"
+
+#: inc/cpt-pets.php:20
+#@ wp_pet
+msgid "New Pet"
+msgstr "Neue Tiere"
+
+#: inc/cpt-pets.php:126
+#: inc/extend.php:105
+#: inc/metabox/boxes.php:92
+#@ wp_pet
+msgid "Colors"
+msgstr "FarbenCores"
+
+#: inc/cpt-pets.php:127
+#@ wp_pet
+msgid "color"
+msgstr "Farbe"
+
+#: inc/cpt-pets.php:63
+#@ wp_pet
+msgid "status"
+msgstr "Status"
+
+#: inc/cpt-pets.php:145
+#@ wp_pet
+msgid "no-pet-category"
+msgstr "keine Tier-Kategorie"
+
+#: inc/cpt-pets.php:62
+#: inc/extend.php:244
+#: inc/form.php:74
+#: inc/metabox/boxes.php:49
+#@ wp_pet
+msgid "Status"
+msgstr "Status"
+
+#: inc/extend.php:248
+#: inc/form.php:88
+#: inc/metabox/boxes.php:43
+#: inc/widgets.php:180
+#@ wp_pet
+#@ default
+msgid "Category"
+msgstr "Kategorie"
+
+#: inc/extend.php:44
+#@ wp_pet
+msgid "Picture"
+msgstr "Bild"
+
+#: inc/extend.php:100
+#: inc/extend.php:252
+#: inc/form.php:101
+#: inc/metabox/boxes.php:56
+#: inc/widgets.php:85
+#@ wp_pet
+msgid "Gender"
+msgstr "Geschlecht"
+
+#: inc/extend.php:103
+#: inc/extend.php:256
+#: inc/form.php:114
+#: inc/metabox/boxes.php:74
+#: inc/widgets.php:87
+#@ wp_pet
+msgid "Size"
+msgstr "Größe"
+
+#: inc/extend.php:101
+#: inc/extend.php:260
+#: inc/form.php:127
+#: inc/metabox/boxes.php:62
+#: inc/widgets.php:86
+#@ wp_pet
+msgid "Age"
+msgstr "Alter"
+
+#: inc/extend.php:109
+#: inc/form.php:197
+#: inc/metabox/boxes.php:98
+#@ wp_pet
+msgid "Vaccines"
+msgstr "Impfen"
+
+#: inc/metabox/boxes.php:37
+#@ wp_pet
+msgid "Pet Profile"
+msgstr "Tierprofil"
+
+#: inc/extend.php:104
+#: inc/metabox/boxes.php:80
+#@ wp_pet
+msgid "Coat"
+msgstr "Fell"
+
+#: inc/extend.php:108
+#: inc/form.php:181
+#: inc/metabox/boxes.php:86
+#@ wp_pet
+msgid "Pattern"
+msgstr "Muster"
+
+#: inc/metabox/boxes.php:102
+#@ wp_pet
+msgid "Vacinated"
+msgstr "Geimpft"
+
+#: inc/form.php:201
+#: inc/metabox/boxes.php:103
+#@ wp_pet
+msgid "Dose Interval"
+msgstr "Intervall Dosis"
+
+#: inc/form.php:202
+#: inc/metabox/boxes.php:104
+#@ wp_pet
+msgid "Unknown"
+msgstr "Unbekannt"
+
+#: inc/extend.php:119
+#: inc/form.php:242
+#: inc/metabox/boxes.php:145
+#@ wp_pet
+msgid "Address"
+msgstr "Adresse"
+
+#: inc/metabox/init.php:391
+#@ wp_pet
+msgid "Upload File"
+msgstr "Datei hochladen"
+
+#: inc/metabox/init.php:400
+#@ wp_pet
+msgid "Remove Image"
+msgstr "Bild löschen"
+
+#: inc/metabox/init.php:407
+#@ wp_pet
+msgid "File"
+msgstr "Datei"
+
+#: inc/metabox/init.php:407
+#@ wp_pet
+msgid "Remove File"
+msgstr "Datei löschen"
+
+#: inc/extend.php:165
+#@ wp_pet
+msgid "Browse Pets by Status"
+msgstr "Zeige Tiere nach Status"
+
+#: inc/extend.php:166
+#@ wp_pet
+msgid "Browse Pets by Category"
+msgstr "Zeige Tiere nach Kategorie"
+
+#: inc/cpt-pets.php:22
+#: inc/extend.php:167
+#@ wp_pet
+msgid "Search Pets"
+msgstr "Tier suchen"
+
+#: inc/extend.php:102
+#: inc/metabox/boxes.php:68
+#@ wp_pet
+msgid "Breed"
+msgstr "Rasse"
+
+#: inc/extend.php:126
+#@ wp_pet
+msgid "at"
+msgstr "bis"
+
+#: inc/extend.php:192
+#@ wp_pet
+msgid "Enter pet name here"
+msgstr "Tiernamen eingeben"
+
+#: inc/extend.php:265
+#@ wp_pet
+msgid "Search pet"
+msgstr "Tier suchen"
+
+#: inc/form.php:44
+#: inc/metabox/boxes.php:38
+#@ wp_pet
+msgid "Fill the pet information here, you can add and change all info anytime."
+msgstr "Hier bitte die Informationen zum Tier eingeben, Du kannst jederzeit etwas hinzufügen oder ändern"
+
+#: inc/form.php:47
+#, fuzzy
+#@ wp_pet
+msgid "Pet name"
+msgstr "Tiername"
+
+#: inc/form.php:200
+#@ wp_pet
+msgid "Vaccinated"
+msgstr "Geimpft"
+
+#: inc/metabox/boxes.php:146
+#@ wp_pet
+msgid "Address or place reference"
+msgstr "Adresse oder Platz"
+
+#: inc/cpt-pets.php:16
+#@ wp_pet
+msgctxt "post type singular name"
+msgid "Pet"
+msgstr "Tier"
+
+#: inc/cpt-pets.php:17
+#: inc/cpt-pets.php:18
+#@ wp_pet
+msgid "Add Pet"
+msgstr "Tier hinzu"
+
+#: inc/cpt-pets.php:19
+#@ wp_pet
+msgid "Edit Pet"
+msgstr "Tier editieren"
+
+#: inc/cpt-pets.php:21
+#@ wp_pet
+msgid "View Pets"
+msgstr "Tier anschauen"
+
+#: inc/cpt-pets.php:23
+#@ wp_pet
+msgid "Not Found!"
+msgstr "Nicht gefunden"
+
+#: inc/cpt-pets.php:24
+#@ wp_pet
+msgid "Nothing found in Trash"
+msgstr "Nichts im Papierkorb gefunden"
+
+#: inc/cpt-pets.php:72
+#@ default
+msgctxt "wp_pet"
+msgid "Gender"
+msgstr "Geschlecht"
+
+#: inc/cpt-pets.php:72
+#@ wp_pet
+msgid "Genders"
+msgstr "Geschlecht"
+
+#: inc/cpt-pets.php:73
+#@ wp_pet
+msgid "genre"
+msgstr ""
+
+#: inc/cpt-pets.php:90
+#@ default
+msgctxt "wp_pet"
+msgid "Age"
+msgstr "Alter"
+
+#: inc/cpt-pets.php:90
+#@ wp_pet
+msgid "Ages"
+msgstr "Alter"
+
+#: inc/cpt-pets.php:91
+#@ wp_pet
+msgid "age"
+msgstr "Alter"
+
+#: inc/cpt-pets.php:99
+#@ default
+msgctxt "wp_pet"
+msgid "Breeds"
+msgstr "Rasse"
+
+#: inc/cpt-pets.php:99
+#@ wp_pet
+msgid "Breeds"
+msgstr "Rasse"
+
+#: inc/cpt-pets.php:100
+#@ wp_pet
+msgid "breed"
+msgstr "Rasse"
+
+#: inc/cpt-pets.php:81
+#@ default
+msgctxt "wp_pet"
+msgid "Size"
+msgstr "Größe"
+
+#: inc/cpt-pets.php:81
+#@ wp_pet
+msgid "Sizes"
+msgstr "Größe"
+
+#: inc/cpt-pets.php:82
+#@ wp_pet
+msgid "size"
+msgstr "Größe"
+
+#: inc/cpt-pets.php:108
+#@ default
+msgctxt "wp_pet"
+msgid "Coat"
+msgstr "Fell"
+
+#: inc/cpt-pets.php:108
+#@ wp_pet
+msgid "Coats"
+msgstr "Fell"
+
+#: inc/cpt-pets.php:109
+#@ wp_pet
+msgid "coat"
+msgstr "Fell"
+
+#: inc/cpt-pets.php:117
+#@ default
+msgctxt "wp_pet"
+msgid "Pattern"
+msgstr "Muster"
+
+#: inc/cpt-pets.php:117
+#@ wp_pet
+msgid "Patterns"
+msgstr "Muster"
+
+#: inc/cpt-pets.php:118
+#@ wp_pet
+msgid "pattern"
+msgstr "Muster"
+
+#: inc/cpt-pets.php:126
+#@ default
+msgctxt "wp_pet"
+msgid "Color"
+msgstr "Farbe"
+
+#: inc/cpt-pets.php:62
+#@ default
+msgctxt "wp_pet"
+msgid "Status"
+msgstr "Status"
+
+#: inc/extend.php:161
+#: pet-manager.php:164
+#@ wp_pet
+msgid "pet-list"
+msgstr "Tierliste"
+
+#: inc/cpt-pets.php:52
+#@ default
+msgctxt "wp_pet"
+msgid "Category"
+msgstr "Kategorie"
+
+#: inc/cpt-pets.php:52
+#@ wp_pet
+msgid "Categories"
+msgstr "Kategorien"
+
+#: inc/cpt-pets.php:52
+#: pet_options_page.php:10
+#@ wp_pet
+msgid "Add pet category"
+msgstr "Kategorie hinzu"
+
+#: inc/cpt-pets.php:53
+#@ wp_pet
+msgid "pet-category"
+msgstr "Tier-Kategorie"
+
+#: inc/cpt-pets.php:62
+#: pet_options_page.php:11
+#@ wp_pet
+msgid "Add pet status"
+msgstr "Status hinzuf"
+
+#: inc/cpt-pets.php:72
+#: pet_options_page.php:12
+#@ wp_pet
+msgid "Add pet gender"
+msgstr "Geschlecht hinzu"
+
+#: inc/cpt-pets.php:81
+#: pet_options_page.php:13
+#@ wp_pet
+msgid "Add pet size"
+msgstr "Größe hinzuf"
+
+#: inc/cpt-pets.php:90
+#: pet_options_page.php:14
+#@ wp_pet
+msgid "Add pet age"
+msgstr "Alter hinzu"
+
+#: inc/cpt-pets.php:99
+#: pet_options_page.php:15
+#@ wp_pet
+msgid "Add pet breed"
+msgstr "Rasse hinzu"
+
+#: inc/cpt-pets.php:108
+#: pet_options_page.php:16
+#@ wp_pet
+msgid "Add pet coat"
+msgstr "Fell hinzu"
+
+#: inc/cpt-pets.php:117
+#: pet_options_page.php:17
+#@ wp_pet
+msgid "Add pet pattern"
+msgstr "Muster hinzu"
+
+#: inc/cpt-pets.php:126
+#: pet_options_page.php:18
+#@ wp_pet
+msgid "Add pet color"
+msgstr "Farbe hinzu"
+
+#: inc/extend.php:139
+#@ wp_pet
+msgid "Your Name"
+msgstr "Name"
+
+#: inc/extend.php:139
+#@ wp_pet
+msgid "Your E-mail"
+msgstr "E-mail"
+
+#: inc/extend.php:139
+#@ wp_pet
+msgid "Your Message"
+msgstr "Ihre Nachricht"
+
+#: inc/extend.php:206
+#@ wp_pet
+msgid "Edit this post and add more info"
+msgstr "Diesen Eintrag editieren and mehr Info hinzufügen"
+
+#: inc/form.php:155
+#@ wp_pet
+msgid "Pet colors"
+msgstr "Tierfarbe"
+
+#: inc/form.php:168
+#@ wp_pet
+msgid "Pet coat"
+msgstr "Tierfell"
+
+#: inc/form.php:240
+#: inc/metabox/boxes.php:139
+#@ wp_pet
+msgid "Lost & Found Information"
+msgstr "Verloren & Gefunden Information"
+
+#: inc/form.php:241
+#: inc/metabox/boxes.php:140
+#@ wp_pet
+msgid "Add an address here to display a map if your lost or found a wondering pet."
+msgstr "Hier eine Adresse hinzufügen um eine Karte anzuzeigen"
+
+#: inc/form.php:247
+#@ default
+msgid "Submit pet"
+msgstr "Tier eintragen"
+
+#: inc/widgets.php:8
+#@ wp_pet
+msgid "Let visitors search for pets in your site"
+msgstr "Besucher in deiner Seite nach Tieren suchen lassen"
+
+#: inc/widgets.php:9
+#: inc/widgets.php:18
+#@ wp_pet
+msgid "Pet Search"
+msgstr "Tier Sch"
+
+#: inc/widgets.php:40
+#: inc/widgets.php:145
+#@ default
+msgid "Title"
+msgstr "Übschift"
+
+#: inc/widgets.php:53
+#@ wp_pet
+msgid "Pet Display"
+msgstr "Tier Anzeige"
+
+#: inc/widgets.php:53
+#@ wp_pet
+msgctxt "widget pet"
+msgid "Display pets by category or status, recent pets, etc"
+msgstr "Tiere nach Kategorie, stats , etc. anzeigen"
+
+#: inc/extend.php:99
+#: inc/widgets.php:84
+#@ wp_pet
+msgid "In"
+msgstr "In"
+
+#: inc/widgets.php:90
+#@ wp_pet
+msgid "Read about"
+msgstr "mehr dazu"
+
+#: inc/widgets.php:150
+#@ default
+msgid "Arbitrary text or HTML"
+msgstr "Wähle Text oder Html"
+
+#: inc/widgets.php:155
+#@ default
+msgid "How many items would you like to display?"
+msgstr ""
+
+#: inc/widgets.php:167
+#@ default
+msgid "Sort by:"
+msgstr ""
+
+#: inc/widgets.php:169
+#@ wp_pet
+msgid "Post title"
+msgstr ""
+
+#: inc/widgets.php:170
+#@ wp_pet
+msgid "Post data"
+msgstr ""
+
+#: inc/widgets.php:171
+#@ wp_pet
+msgid "Post author"
+msgstr ""
+
+#: inc/widgets.php:172
+#@ wp_pet
+msgid "Post ID"
+msgstr ""
+
+#: inc/widgets.php:173
+#@ default
+msgid "Random"
+msgstr ""
+
+#: inc/widgets.php:174
+#@ wp_pet
+msgid "Modified date"
+msgstr ""
+
+#: inc/widgets.php:175
+#@ wp_pet
+msgid "Popularity"
+msgstr ""
+
+#: inc/widgets.php:182
+#: inc/widgets.php:194
+#@ wp_pet
+msgid "All"
+msgstr ""
+
+#: inc/widgets.php:192
+#@ wp_pet
+msgid "Pet Status"
+msgstr ""
+
+#: inc/widgets.php:206
+#@ wp_pet
+msgid "Show RSS link"
+msgstr ""
+
+#: pet-manager.php:171
+#: pet-manager.php:173
+#@ wp_pet
+msgid "Add a pet"
+msgstr "Adicionar um pet"
+
+#: pet-manager.php:187
+#: pet_options_page.php:6
+#@ wp_pet
+msgid "Options & About"
+msgstr ""
+
+#: pet_options_page.php:7
+#@ wp_pet
+msgid "Taxonomies"
+msgstr ""
+
+#: pet_options_page.php:21
+#@ wp_pet
+msgid "About Pet Manager"
+msgstr ""
+
+#: pet_options_page.php:22
+#@ wp_pet
+msgid "Pet Manager plugin was designed for small or local websites on animal adoption projects."
+msgstr ""
+
+#: pet_options_page.php:24
+#@ wp_pet
+msgid "Support & Contact"
+msgstr ""
+
+#: pet_options_page.php:25
+#@ wp_pet
+msgid "Please, keep all questions on WordPress.org forum <a href=\"mailto:dianakac@gmail.com?subject=About ADA Plugin\">e-mail</a> anytime. You can also reach me at my <a href=\"http://arquivo.tk\" _target=\"_blank\" >website</a>"
+msgstr ""
+
+#: pet_options_page.php:27
+#@ wp_pet
+msgid "Translation"
+msgstr ""
+
+#: pet_options_page.php:30
+#@ wp_pet
+msgid "Disclaimer"
+msgstr ""
+
+#: pet_options_page.php:31
+#@ wp_pet
+msgid "Pet Manager Plugin is a free plugin but I discourage pet shops for using it and I will not provide support for such."
+msgstr ""
+
+#: inc/extend.php:110
+#: inc/form.php:207
+#: inc/form.php:210
+#: inc/metabox/boxes.php:108
+#: inc/metabox/boxes.php:113
+#@ wp_pet
+msgid "Desexed"
+msgstr "Sterilisiert"
+
+#: inc/extend.php:111
+#: inc/form.php:216
+#: inc/form.php:219
+#: inc/metabox/boxes.php:119
+#: inc/metabox/boxes.php:124
+#@ wp_pet
+msgid "Special needs"
+msgstr ""
+
+#: inc/extend.php:113
+#@ wp_pet
+msgid "Added in"
+msgstr ""
+
+#: inc/extend.php:114
+#@ wp_pet
+msgid "Modified in"
+msgstr ""
+
+#: inc/form.php:27
+#@ wp_pet
+msgid "Required field &#9650;"
+msgstr ""
+
+#: inc/form.php:28
+#@ wp_pet
+msgid "Pet name must be at least 3 letters long"
+msgstr ""
+
+#: inc/form.php:31
+#: inc/form.php:33
+#@ wp_pet
+msgid "Required field &#9658;"
+msgstr ""
+
+#: inc/form.php:34
+#@ wp_pet
+msgid "Required field"
+msgstr ""
+
+#: inc/form.php:50
+#@ wp_pet
+msgid "Description"
+msgstr ""
+
+#: inc/form.php:142
+#@ wp_pet
+msgid "Pet breeds"
+msgstr ""
+
+#: inc/form.php:211
+#: inc/metabox/boxes.php:114
+#@ wp_pet
+msgid "No desexed"
+msgstr ""
+
+#: inc/form.php:220
+#: inc/metabox/boxes.php:125
+#@ wp_pet
+msgid "No special needs"
+msgstr ""
+
+#: inc/form.php:227
+#: inc/metabox/boxes.php:129
+#@ wp_pet
+msgid "Contact"
+msgstr "Kontakt"
+
+#: inc/form.php:228
+#: inc/metabox/boxes.php:130
+#@ wp_pet
+msgid "Set to display or not the contact form on this pet page so users can contact you by email."
+msgstr ""
+
+#: inc/form.php:229
+#: inc/metabox/boxes.php:134
+#@ wp_pet
+msgid "Yes"
+msgstr "Ja"
+
+#: inc/form.php:230
+#: inc/metabox/boxes.php:135
+#@ wp_pet
+msgid "No"
+msgstr "Nein"
+
+#: inc/form.php:236
+#@ wp_pet
+msgid "200 width x 200 height at least"
+msgstr "200 Breite x 200 Höhe"
+
+#: inc/form.php:262
+#: inc/form.php:263
+#@ default
+msgid "Register"
+msgstr ""
+
+#: inc/form.php:263
+#@ default
+msgid "You must be logged in order to add pets, please login or"
+msgstr ""
+
+#: inc/form.php:263
+#@ default
+msgid "Click to register"
+msgstr ""
+
+#: inc/form.php:267
+#@ default
+msgid "Login"
+msgstr ""
+
+#. translators: plugin header field 'Description'
+#: pet-manager.php:0
+#@ wp_pet
+msgid "Pet Manager offers a aesy way to keep pet shelters websites"
+msgstr ""
+
+#: pet-manager.php:240
+#, php-format
+#@ wp_pet
+msgid "%s added a new pet: %s"
+msgstr ""
+
+#: pet_options_page.php:8
+#@ wp_pet
+msgid "Pet Manager uses special <a href=\"http://codex.wordpress.org/Taxonomies\" targer=\"_blank\">taxonomies</a> for sort pet post. Before start, add some taxonomies clicking the buttons bellow:"
+msgstr ""
+
+#: pet_options_page.php:28
+#@ wp_pet
+msgid "Please, submit translations in the forum."
+msgstr ""
+
+#: pet_options_page.php:33
+#@ wp_pet
+msgid "Donate"
+msgstr ""
+
+#: pet_options_page.php:34
+#@ wp_pet
+msgid "<strong>Donation</strong> If I saved you sometime, consider make a donation"
+msgstr ""
+
+#: pet_options_page.php:36
+#@ wp_pet
+msgid "US and so on"
+msgstr ""
+
+#: pet_options_page.php:51
+#@ wp_pet
+msgid "Brazil only"
+msgstr ""
+
+#: inc/extend.php:139
+#@ wp_pet
+msgid "Contact about this pet"
+msgstr ""
+
+#: inc/extend.php:206
+#@ wp_pet
+msgid "This post is still waiting for moderator approval."
+msgstr ""
+
+#: inc/form.php:44
+#@ wp_pet
+msgid "Required fields are marked *"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: pet-manager.php:0
+#@ wp_pet
+msgid "1.2"
+msgstr ""
+
