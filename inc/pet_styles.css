@@ -2,7 +2,7 @@
 .clear{clear:both;width:100%}
 
 /* Pet info panel*/
-.pet_info {display:table;clear:both;padding:0;;width:100%;margin-bottom:1.0em;float:left}
+.pet_info {display:table;clear:both;padding:0;width:100%;margin-bottom:1.0em;float:left}
 
 .pet_info ul  {float:left;}
 
